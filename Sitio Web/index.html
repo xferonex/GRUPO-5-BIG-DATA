@@ -232,6 +232,35 @@ que está utilizando.
 <img src="img/seccion2/cs03-monitoreo.png"
      alt="Gráficas de monitorización de la instancia EC2"
      style="max-width: 100%; height: auto;">
+  
+<h4>CS04 - Grupo de seguridad y acceso HTTP</h4>
+
+<p>
+  En esta parte hemos configurado el grupo de seguridad
+  del servidor para permitir las conexiones HTTP.
+  Hemos añadido una regla de entrada con el protocolo TCP,
+  el puerto 80 y el origen 0.0.0.0/0.
+</p>
+
+<p>
+  En esta primera captura se puede ver cómo hemos
+  configurado la regla de entrada.
+</p>
+
+<img src="img/seccion2/cs04-configuracion.png"
+     alt="Configuración de la regla HTTP en el puerto 80"
+     style="max-width: 100%; height: auto;">
+
+<p>
+  Después de guardar los cambios, hemos comprobado
+  que la regla HTTP aparece correctamente en el
+  grupo de seguridad Web Server security group.
+</p>
+
+<img src="img/seccion2/cs04-comprobacion.png"
+     alt="Comprobación de la regla HTTP guardada"
+     style="max-width: 100%; height: auto;">
+
 
 
 
