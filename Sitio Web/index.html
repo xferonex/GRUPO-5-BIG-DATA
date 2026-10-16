@@ -261,6 +261,43 @@ que está utilizando.
      alt="Comprobación de la regla HTTP guardada"
      style="max-width: 100%; height: auto;">
 
+<h4>CS05 - Reescalado de la instancia EC2</h4>
+
+<p>
+  En esta última parte hemos cambiado el tamaño de nuestra
+  instancia EC2. Inicialmente utilizábamos una t2.micro,
+  que dispone de 1 GiB de memoria RAM.
+</p>
+
+<p>
+  En la primera captura podemos ver el servidor Web Server
+  funcionando con el tamaño inicial t2.micro.
+</p>
+
+<img src="img/seccion2/cs05-antes.png"
+     alt="Instancia EC2 antes del reescalado"
+     style="max-width: 100%; height: auto;">
+
+<p>
+  Después hemos seleccionado el tipo t2.small.
+  En la siguiente captura podemos comparar ambos tamaños
+  y comprobar que la memoria RAM aumenta de 1 GiB a 2 GiB.
+</p>
+
+<img src="img/seccion2/cs05-comparacion.png"
+     alt="Comparación entre t2.micro y t2.small"
+     style="max-width: 100%; height: auto;">
+
+<p>
+  Finalmente, AWS nos confirma que el cambio se ha realizado
+  correctamente. Podemos ver que nuestra instancia Web Server
+  aparece ahora con el nuevo tamaño t2.small.
+</p>
+
+<img src="img/seccion2/cs05-despues.png"
+     alt="Instancia EC2 después del reescalado"
+     style="max-width: 100%; height: auto;">
+
 
 
 
