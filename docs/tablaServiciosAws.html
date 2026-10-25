@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GRUPO 5: Sitio web</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body class="page-index">
+    <header>
+        <div>
+            <a href="index.html">
+                <img src="img/logo.png" alt="grupo5" class="logo_index">
+            </a>
+        </div>
+        <div class="header-title">
+            <h2>GRUPO 5: RETO BIG DATA</h2>
+        </div>
+        <div class="header-users">
+            <div class="user_loged_box">
+                <p>Javier Rueda Jiménez</p>
+                <p>Fernando Arroyo Almodóvar </p>
+                <p>Ricardo Corral Valderas</p>
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <aside id="sidebar" class="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-expanded="true" aria-controls="sidebar">
+                <span class="toggle-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </span>
+            </button>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #1 AWS</button>
+                        <ul class="submenu">
+                            <li><a href="tablaServiciosAws.html">- Tabla Servicios AWS</a></li>
+                            <li><a href="escenarioAws.html">- Respuestas escenario AWS</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #2 – Primer servidor web en AWS</button>
+                        <ul class="submenu">
+                            <li><a href="lab3.html">- Lab 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #3 – Balanceo y autoscaling</button>
+                        <ul class="submenu">
+                            <li><a href="lab6.html">- Lab 6</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <!-- Contenido principal aquí -->
+             <h2>Tabla Servicios AWS</h2> 
+
+             <table class="services-table">
+                <colgroup>
+                    <col class="service-column">
+                    <col class="description-column">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Servicio</th>
+                        <th scope="col">Descripción</th>
+                    </tr>
+                </thead>
+            <tbody>
+                    <tr><td>EC2</td><td>Servicio básico de la nube AWS. En EC2 se crean las máquinas virtuales en la
+                            nube. Permite su creación de forma rápida. Además, si la máquina virtual se
+                            queda corta, se puede reescalar añadiendo más potencia fácilmente.</td></tr>
+                                        <tr>
+                        <td>RDS</td>
+                        <td>
+                            Servicio de AWS relacionado con BBDD o motor de base de datos relacional de AWS,
+                            en lugar de disponer de este servicio on premise sobre un servidor, es alojado
+                            en el Cloud de AWS, un ejemplo puede ser Postgresql
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>S3</td>
+                        <td>
+                            Almacenamiento de AWS alojado en Cloud, útil para llegar a los datos desde
+                            distintos servicios de AWS, por ejemplo: Una página expuesta en Cloudfront de AWS,
+                            el usuario accede a esa web y tras hacer login quiere consultar una información,
+                            esta información está alojada en un Bucket de S3. Backups de un servidor sql server
+                            alojados en una instancia ec2, requieres que se sincronicen en S3 para mantener
+                            información redundada.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EBS</td>
+                        <td>
+                            Servicio de almacenamiento de AWS, más enfocado u orientado a la instancia EC2,
+                            a modo de unidad de red o volumen, lo definiría como un disco duro conectado a la
+                            instancia ec2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DynamoDB</td>
+                        <td>
+                            Tipo de BBDD de AWS, junto con Aurora son servicios de BBDD de AWS, en este caso
+                            DynamoDB no es BBD relacional. En el caso de Aurosa si es relacional.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CloudFront</td>
+                        <td>
+                            Servicio de AWS muy orientado a programación web, sirve para copiar el contenido
+                            de la web en distintos servidores por distintas ubicaciones, es muy rápido y muy
+                            seguro, dentro de la arquitectura de AWS podrías definir páginas Web así como
+                            exponerlas al exterior, pueden ser protegidas por el propio WAF de AWS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Amazon EKS</td>
+                        <td>
+                            Servicio de AWS para la gestión de Kubernetes, en este punto tengo dudas entre
+                            Docker y Kubernetes, desde el punto de vista de AWS, EKS sería el servicio que
+                            ayuda a administrar los Kubernetes.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>AWS Lambda</td>
+                        <td>
+                            Servicio de AWS que compararía con un demonio dormido, un desencadenante en
+                            Cloudfront permitiría a este servicio despertar y ejecutar el código que se le
+                            hubiese subido. La gracia de este tipo de servicios es que se paga por uso,
+                            mientras el servicio esté parado no está facturando.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Amazon Q</td>
+                        <td>
+                            La IA de Amazon o un asistente de IA de Amazon instalable en Visual Studio Code,
+                            muy útil para ayudar a depurar o investigar código en distintos lenguajes, por
+                            ejemplo muy útil para combinar html CSS y Phyton con Java Script
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cloudwatch</td>
+                        <td>
+                            Algo similar a un monitor de eventos o servicio de monitorización de eventos de
+                            Amazon, mucho más elaborado que un Nagios y más vistoso, ayuda a gestionar
+                            alertas de los distintos servicios alojados en las distintas VPC.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cognito</td>
+                        <td>
+                            Gestión de identidades de usuarios para aplicaciones, ejemplo, app web publicada
+                            al exterior que requiere registro de usuarios, contraseñas y MFA, cognito sería
+                            la solución a esta necesidad, sería la herramienta que ayuda a validar a los
+                            usuarios.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Servicio añadido 4</td>
+                        <td>  </td>
+                    </tr>
+                    <tr>
+                        <td>Servicio añadido 5</td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Servicio añadido 6</td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+    </div>
+</section> 
+
+
+    <script src="js/sidebar.js"></script>
+</body>
+</html>
+    
