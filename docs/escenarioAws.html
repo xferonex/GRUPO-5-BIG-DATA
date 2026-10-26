@@ -61,10 +61,61 @@
         <main class="content">
             <!-- Contenido principal aquí -->
              <h2>Escenario AWS</h2> 
+                    <p>Dado el siguiente esquema de AWS:</p>
 
+                    <img src="img/seccion1/esquema-aws.png"
+                    alt="Esquema de la arquitectura AWS con VPC de producción y VPC de auditoría"
+                    style="max-width: 100%; height: auto;">
+
+                    <p>Responde de forma clara las siguientes preguntas:</p>
+
+                        <h4>¿Están todos los servicios correctamente ubicados?</h4>
+                            <p>
+                                Sí. En este diagrama, Route 53 y CloudFront están fuera de la VPC, ya que son
+                                servicios globales. El tráfico entra por el Internet Gateway y el ALB
+                                (Application Load Balancer). ECS y RDS están en subredes privadas distintas,
+                                lo cual es correcto. Quizás genere alguna duda tener duplicados los servicios
+                                de CloudWatch y CloudTrail en dos VPC distintas, pero nos inclinaríamos por
+                                una VPC de auditoría y una VPC de Producción. Se distinguen dos zonas de
+                                disponibilidad distintas y se presupone que hay un servicio de replicación de
+                                BBDD de la zona A a la zona B.
+                            </p>
+
+                        <h4>¿Por qué no se usa EC2 y se usa ECS? ¿Diferencias?</h4>
+                            <p>
+                                Se usa ECS en detrimento de instancias EC2, que serían máquinas virtuales con
+                                sistema operativo propio, familia X de procesador, etc. En cambio, la solución
+                                ECS sería una solución más sencilla y ágil. En el caso de EC2 tienes que
+                                añadir un plus de mantenimiento y gestión de sistema operativo, gestión de
+                                parches, etc. En el caso de ECS eliminarías toda esa parte o la simplificarías
+                                mucho más. Además, ECS soporta mucha carga de trabajo y es muy escalable. La
+                                velocidad de despliegue de ECS es mucho mayor que la de EC2.
+                            </p>
+
+                        <h4>¿Cuántas redes privadas hay?</h4>
+                            <p>
+                                Incluiría 4 subredes privadas. Dentro de la zona A encontramos la subred de
+                                ECS y la subred de la BBDD. En caso de disaster recovery, sea en activo-activo
+                                o activo-pasivo, encontraremos las mismas subredes replicadas en la zona B.
+                            </p>
+                            <p>
+                                Todas las subredes pueden pertenecer al mismo rango de red, pero cada subred
+                                está asociada a una única zona de disponibilidad y tiene su propio pool de
+                                direcciones. Por consiguiente, la subred de ECS de la zona B tendrá un rango
+                                distinto al de la subred de ECS de la zona A.
+                            </p>
+                            <p>
+                                Independientemente de lo anterior, destacaríamos dos redes privadas
+                                principales: la VPC de Producción y la VPC de Auditoría.
+                            </p>
+
+                        <h4>¿En cuántos CPDs se ubica el servicio?</h4>
+                            <p>
+                                Entendemos que en una misma región puedes disponer de 3 zonas de
+                                disponibilidad, es decir, 3 CPDs. En este caso, la respuesta serían 2 CPDs.
+                            </p>
         </main>
-    </div>
-</section> 
+    </div> 
 
 
     <script src="js/sidebar.js"></script>
