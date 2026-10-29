@@ -59,12 +59,273 @@
             </nav>
         </aside>
         <main class="content">
-            <!-- Contenido principal aquí -->
-             <h2>Laboratorio 6: Balanceo y autoscaling</h2> 
+            <section id="seccion-3">
+                <!-- Contenido principal aquí -->
+                <h2>Laboratorio 6: Balanceo y autoscaling</h2>
+                <h3>1. Introducción y objetivo</h3>
+                <p>En este laboratorio se abordará la configuración de 
+                    balanceo de carga y escalado automático en AWS. 
+                    Se aprenderá a distribuir el tráfico entre múltiples instancias 
+                    y a ajustar automáticamente la capacidad según la demanda.
+                </p>
+                <p>Se seguirá un procedimiento paso a paso para configurar el balanceo de carga y el escalado automático en AWS, 
+                    incluyendo la creación de instancias, la configuración de un 
+                    grupo de autoescalado y la implementación de un balanceador de carga.
+                </p>
+                <h3>2. Procedimiento</h3>
+                <p>En esta sección se detallará el procedimiento para configurar el 
+                    balanceo de carga y el escalado automático en AWS. 
+                    Se incluirán los pasos necesarios para crear instancias, 
+                    configurar un grupo de autoescalado y establecer un balanceador de carga.
+                </p>
+                <h4>2.1 Creación de AMI para el autoescalado</h4>
+                <p>Para habilitar el autoescalado, 
+                    primero se debe crear una Amazon Machine Image (AMI) 
+                    de la instancia que se desea replicar. Esta AMI servirá 
+                    como plantilla para lanzar nuevas instancias automáticamente 
+                    cuando sea necesario.
+                </p>
+                <h4>[CS01] Captura de la creación de la AMI</h4>
+                <p>Mediante la consola de administración de AWS accedemos a EC2, 
+                    desde donde crearemos la imagen de la instancia indicada por 
+                    el laboratorio.
+                </p>
+                <img src="img/seccion3/CS01_01_AccesoEC2.png"
+                        alt="Acceso a EC2"
+                        style="max-width: 100%; height: auto;">
 
+                <p>
+                    Accedemos al apartado de instancias y seleccionamos la instancia indicada por el laboratorio, en este caso Web Server 1.
+                </p>
+                <img src="img/seccion3/CS01_02_SeleccionInstancia.png"
+                        alt="Selección de instancia"
+                        style="max-width: 100%; height: auto;">
+                
+                <p>
+                    Con la instancia seleccionada, desde el botón “Acciones” accedemos a crear la imagen de la instancia. Donde definimos los parámetros solicitados por el laboratorio.
+                </p>
+                <p>
+                    Asignamos el nombre: WebServerAMI
+                </p>
+                <p>
+                    descripción de la imagen: Lab AMI for Web Server
+                </p>
+                <img src="img/seccion3/CS01_03_CreacionAMI.png"
+                        alt="Crear imagen de la instancia"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    Esperamos a que la creación de la AMI se complete, lo cual puede tardar unos minutos. Una vez finalizada, la nueva imagen estará disponible en el apartado de AMIs de EC2.
+                    Desde el menú de Amazon Machine Images (AMI) comprobamos que la imagen se ha creado correctamente.
+                </p>
+                <img src="img/seccion3/CS01_04_ComprobacionAMI.png"
+                        alt="Comprobación de la AMI"
+                        style="max-width: 100%; height: auto;">
+                
+                <p>
+                    Con esto hemos completado la creación de la AMI que servirá como plantilla para el autoescalado.
+                </p>
+                <p>
+                    Esta AMI ahora puede ser utilizada para configurar un grupo de autoescalado, asegurando que nuevas instancias se lancen automáticamente según la demanda utilizando esta AMI.
+                    Esto permite que la infraestructura se adapte dinámicamente a las necesidades del tráfico, mejorando la disponibilidad y eficiencia de los recursos. 
+                </p>
+
+                <h4>2.2 Comprobación de la VPC generada</h4>
+                <p>
+                    En esta sección verificaremos que la VPC generada por el laboratorio se ha creado 
+                    correctamente y que todos los componentes asociados, 
+                    como subredes, gateways y tablas de enrutamiento, 
+                    están configurados según lo esperado.
+                </p>
+                <h4>[CS02] Captura de la infraestructura VPC creada</h4>
+                <p>
+                    Accedemos al servicio VPC desde la consola de administración y seleccionamos lab VPC para visualizar la infraestructura desde el apartado “mapa de recursos”.
+                </p>
+                <img src="img/seccion3/CS02_01_MapaRecursosVPC.png"
+                        alt="Mapa de recursos de la VPC"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS02_02_DetallesRecursosVPC.png"
+                        alt="Detalles de los recursos de la VPC"
+                        style="max-width: 100%; height: auto;">
+                
+                <h4>2.3 Creación del balanceador de carga</h4>
+                <p>
+                    En esta sección configuraremos un balanceador de carga para distribuir el tráfico entre las instancias del grupo de autoescalado. 
+                    Esto asegura que las solicitudes de los usuarios se manejen de manera eficiente y que la carga se distribuya equitativamente.
+                </p>
+                <h4>[CS03] Captura del ELB creado</h4>
+                <h4>2.3.1 Creación del grupo de destino</h4>
+                <p>El grupo de destino se utilizará para asociar las instancias que 
+                    recibirán el tráfico del balanceador de carga. Esto permite que el balanceador 
+                    de carga distribuya las solicitudes de manera eficiente entre las instancias disponibles.
+                </p>
+                <p>
+                    A continuación, procedemos a crear el ELB solicitado 
+                    en el laboratorio. 
+                </p>
+                <p>
+                    El primer paso será crear 
+                    un grupo de destino.
+                    Para ello dentro del servicio EC2 
+                    en el menú de la izquierda accedemos a grupo de destino. 
+                    Una vez dentro, pulsaremos al botón “Crear un grupo de destino”.
+                </p>
+
+                <img src="img/seccion3/CS03_01_AccesoGrupoDestino.png"
+                        alt="Acceso a grupo de destino"
+                        style="max-width: 100%; height: auto;">
+
+
+                <p>
+                    Siguiendo los pasos indicados en el laboratorio, 
+                    establecemos los parámetros solicitados.
+                </p>
+                <p>tipo de destino: Instancias</p>
+                <p>Nombre del grupo objetivo: LabGroup</p>
+                <p>Seleccione Lab VPC en el menú desplegable VPC.</p>
+
+                <img src="img/seccion3/CS03_02_CreacionGrupoDestino.png"
+                        alt="Creación del grupo de destino"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_03_CreacionGrupoDestino.png"
+                        alt="Creación del grupo de destino"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_04_CreacionGrupoDestino.png"
+                        alt="Creación del grupo de destino"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_05_CreacionGrupoDestino.png"
+                        alt="Creación del grupo de destino"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    Omitimos el paso de Registrar destino tal y como indica el laboratorio.
+                    Esto significa que no agregaremos instancias al grupo de destino en este momento.
+                    Al omitir el registro de destino, el grupo de destino queda creado pero sin instancias asociadas.
+                    Esto nos permitirá asociar las instancias más adelante según sea necesario.
+                    Pulsamos directamente el botón siguiente.
+                </p>
+
+                <img src="img/seccion3/CS03_06_OmisionGrupoDestino.png"
+                        alt="Paso omitido por el laboratorio"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_07_OmisionGrupoDestino.png"
+                        alt="Paso omitido por el laboratorio"
+                        style="max-width: 100%; height: auto;">
+
+                
+
+                <p>Revisamos la configuración y pulsamos en “Crear un grupo de destino”</p>
+                <img src="img/seccion3/CS03_08_RevisionGrupoDestino.png"
+                        alt="Revisión de la configuración del grupo de destino"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_09_RevisionGrupoDestino.png"
+                        alt="Revisión de la configuración del grupo de destino"
+                        style="max-width: 100%; height: auto;">
+
+                <h4>2.3.2 Creación del balanceador de carga</h4>
+                <p>
+                    En esta sección, configuraremos el balanceador de carga que 
+                    distribuirá el tráfico entre las instancias asociadas al 
+                    grupo de destino previamente creado.
+                </p>
+                <p>
+                    Desde el menú de la izquierda accedemos a Balanceadores de carga, 
+                    desde donde crearemos el balanceador.
+                </p>
+                <img src="img/seccion3/CS03_10_AccesoBalanceadorCarga.png"
+                        alt="Acceso a Balanceadores de carga"
+                        style="max-width: 100%; height: auto;">
+                <p>
+                    Seleccionamos el balanceador de carga para aplicaciones y pulsamos en "Crear".
+                </p>
+                <img src="img/seccion3/CS03_11_BalanceadorCarga.png"
+                        alt="Selección del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_12_BalanceadorCarga.png"
+                        alt="Selección del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    Introducimos los parámetros requeridos por el laboratorio.
+                </p>
+                <p>
+                    Nombre del balanceador: LabELB
+                </p>
+                <p>
+                    En mapero de red, para la VPC seleccionamos: LabVPC
+                </p>
+                <p>
+                    Seleccionamos las subredes públicas correspondientes a la VPC LabVPC.
+                    Esto asegura que el balanceador de carga pueda recibir tráfico desde Internet.
+                </p>
+                <p>Zona de disponibilidad 1 (us-east-1a): Public Subnet 1</p>
+                <p>Zona de disponibilidad 2 (us-east-1b): Public Subnet 2</p>
+                <p>
+                    Grupo de seguridad: Web Security Group
+                </p>
+                <p>
+                    En agente de escucha, seleccionamos el protocolo HTTP y el puerto 80. 
+                    Y en accion predeterminada, seleccionamos reenviar a los grupos de destino. Y seleccionamos LabGroup como grupo de destino.
+                </p>
+                <img src="img/seccion3/CS03_13_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_14_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_15_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_16_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_17_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_18_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_19_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_20_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_21_ParametrosBalanceadorCarga.png"
+                        alt="Parámetros del balanceador de carga"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    Una vez definidos los parámetros, procedemos a revisar la configuración final del balanceador de carga.
+                </p>
+
+                <h4>2.3.3 Resultado creación del balanceador de carga</h4>
+                <p>
+                    Comprobamos el resultado de la creación del ELB.
+                    para ello entramos en el menu de balanceadores de carga y verificamos que el ELB creado aparezca en la lista.
+                </p>
+                <img src="img/seccion3/CS03_22_EstadoBalanceadorCarga.png"
+                        alt="Comprobación del ELB"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_23_EstadoBalanceadorCarga.png"
+                        alt="Comprobación del ELB"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_24_EstadoBalanceadorCarga.png"
+                        alt="Comprobación del ELB"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_25_EstadoBalanceadorCarga.png"
+                        alt="Comprobación del ELB"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS03_26_EstadoBalanceadorCarga.png"
+                        alt="Comprobación del ELB"
+                        style="max-width: 100%; height: auto;">
+
+
+
+
+            </section>
         </main>
     </div>
-</section> 
 
 
     <script src="js/sidebar.js"></script>
