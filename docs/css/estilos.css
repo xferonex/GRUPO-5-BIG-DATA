@@ -174,7 +174,11 @@ header {
 
 .sidebar-nav {
     padding: 20px 0;
-    padding-right: 48px; /* espacio para la barra toggle */
+    margin-right: 20px; /* deja libre la barra toggle para que el scroll quede visible */
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .sidebar-nav ul {
     list-style: none;
@@ -192,7 +196,8 @@ header {
     color: #3C3C43;
     text-decoration: none;
     transition: background 0.3s ease;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
     border-bottom: 2px solid transparent;
 }
 
@@ -261,10 +266,16 @@ header {
 
 .sidebar-nav .submenu li a {
     display: block;
-    padding: 10px 32px;
+    padding: 10px 32px 10px calc(32px + 1em);
+    text-indent: -1em;
     color: #3C3C43;
     text-decoration: none;
     border-bottom: 2px solid transparent;
+}
+
+.sidebar-nav .subsubmenu li a {
+    padding: 8px 20px 8px calc(52px + 1em);
+    font-size: 0.95em;
 }
 
 .sidebar-nav .submenu li a:hover {
@@ -279,7 +290,7 @@ header {
 }
 
 .sidebar-nav .has-submenu.open .submenu {
-    max-height: 500px;
+    max-height: 1000px;
    /* overflow-y: auto;*/
 }
 

@@ -46,13 +46,36 @@
                     <li class="menu-item has-submenu">
                         <button type="button" class="submenu-toggle" aria-expanded="false">Sección #2 – Primer servidor web en AWS</button>
                         <ul class="submenu">
-                            <li><a href="lab3.html">- Lab 3</a></li>
+                            <li>
+                                <a href="lab3.html">- Laboratorio 3</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="#lab3_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="#lab3_evidencias">&bull; 2. Evidencias de la práctica</a></li>
+                                    <li><a href="#lab3_cs01">&bull; 4. CS01 – Protección contra terminación</a></li>
+                                    <li><a href="#lab3_cs02">&bull; 5. CS02 – Página web desplegada</a></li>
+                                    <li><a href="#lab3_cs03">&bull; 6. CS03 – Monitorización de la instancia EC2</a></li>
+                                    <li><a href="#lab3_cs04">&bull; 7. CS04 - Grupo de seguridad y acceso HTTP</a></li>
+                                    <li><a href="#lab3_cs05">&bull; 8. CS05 - Reescalado de la instancia EC2</a></li>
+                                    <li><a href="#lab3_conclusion">&bull; 3. Conclusión</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="menu-item has-submenu">
                         <button type="button" class="submenu-toggle" aria-expanded="false">Sección #3 – Balanceo y autoscaling</button>
                         <ul class="submenu">
-                            <li><a href="lab6.html">- Lab 6</a></li>
+                            <li>
+                                <a href="lab6.html">- Laboratorio 6</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="lab6.html#lab6_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="lab6.html#lab6_2">&bull; 2. Procedimiento</a></li>
+                                    <li><a href="lab6.html#lab6_2_1">&bull; 2.1 Creación de AMI para el autoescalado</a></li>
+                                    <li><a href="lab6.html#lab6_2_2">&bull; 2.2 Comprobación de la VPC generada</a></li>
+                                    <li><a href="lab6.html#lab6_2_3">&bull; 2.3 Creación del balanceador de carga</a></li>
+                                    <li><a href="lab6.html#lab6_2_4">&bull; 2.4 Creación plantilla de lanzamiento y grupo de escalado automático</a></li>
+                                    <li><a href="lab6.html#lab6_2_5">&bull; 2.5 Verificación del funcionamiento del balanceador de carga</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -62,7 +85,7 @@
             <!-- Contenido principal aquí -->
             <section id="seccion-2">
                 <h2>Sección 2 – Primer servidor web en AWS</h2>
-                <h3>1. Introducción y objetivo</h3>
+                <h3 id="lab3_intro">1. Introducción y objetivo</h3>
 
                 <p>
                     En esta segunda parte del reto hemos trabajado con Amazon EC2,
@@ -87,9 +110,9 @@
                     que hemos completado las diferentes tareas.
                 </p>
                 
-                <h3>2. Evidencias de la práctica</h3>
+                <h3 id="lab3_evidencias">2. Evidencias de la práctica</h3>
 
-                <h4>CS01 – Protección contra terminación</h4>
+                <h4 id="lab3_cs01">CS01 – Protección contra terminación</h4>
 
                 <p>
                 En esta primera captura podemos ver que hemos habilitado la protección
@@ -110,7 +133,7 @@
                     alt="Comprobación de la protección contra terminación habilitada"
                     style="max-width: 100%; height: auto;">
                     
-                <h4>CS02 – Página web desplegada</h4>
+                <h4 id="lab3_cs02">CS02 – Página web desplegada</h4>
 
                 <p>
                 En esta captura podemos ver que hemos conseguido acceder
@@ -128,7 +151,7 @@
                     alt="Página web de Apache funcionando desde el navegador"
                     style="max-width: 100%; height: auto;">
                     
-                <h4>CS03 – Monitorización de la instancia EC2</h4>
+                <h4 id="lab3_cs03">CS03 – Monitorización de la instancia EC2</h4>
 
                 <p>
                 En esta captura podemos ver la pestaña de monitoreo
@@ -149,7 +172,7 @@
                     alt="Gráficas de monitorización de la instancia EC2"
                     style="max-width: 100%; height: auto;">
                 
-                <h4>CS04 - Grupo de seguridad y acceso HTTP</h4>
+                <h4 id="lab3_cs04">CS04 - Grupo de seguridad y acceso HTTP</h4>
 
                 <p>
                 En esta parte hemos configurado el grupo de seguridad
@@ -177,7 +200,7 @@
                     alt="Comprobación de la regla HTTP guardada"
                     style="max-width: 100%; height: auto;">
 
-                <h4>CS05 - Reescalado de la instancia EC2</h4>
+                <h4 id="lab3_cs05">CS05 - Reescalado de la instancia EC2</h4>
 
                 <p>
                 En esta última parte hemos cambiado el tamaño de nuestra
@@ -216,7 +239,7 @@
 
 
 
-                <h3>3. Conclusión</h3>
+                <h3 id="lab3_conclusion">3. Conclusión</h3>
 
                 <p>
                 Con esta práctica hemos aprendido a crear y configurar

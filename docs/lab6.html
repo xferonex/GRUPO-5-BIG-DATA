@@ -46,13 +46,36 @@
                     <li class="menu-item has-submenu">
                         <button type="button" class="submenu-toggle" aria-expanded="false">Sección #2 – Primer servidor web en AWS</button>
                         <ul class="submenu">
-                            <li><a href="lab3.html">- Lab 3</a></li>
+                            <li>
+                                <a href="lab3.html">- Laboratorio 3</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="lab3.html#lab3_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="lab3.html#lab3_evidencias">&bull; 2. Evidencias de la práctica</a></li>
+                                    <li><a href="lab3.html#lab3_cs01">&bull; 4. CS01 – Protección contra terminación</a></li>
+                                    <li><a href="lab3.html#lab3_cs02">&bull; 5. CS02 – Página web desplegada</a></li>
+                                    <li><a href="lab3.html#lab3_cs03">&bull; 6. CS03 – Monitorización de la instancia EC2</a></li>
+                                    <li><a href="lab3.html#lab3_cs04">&bull; 7. CS04 - Grupo de seguridad y acceso HTTP</a></li>
+                                    <li><a href="lab3.html#lab3_cs05">&bull; 8. CS05 - Reescalado de la instancia EC2</a></li>
+                                    <li><a href="lab3.html#lab3_conclusion">&bull; 3. Conclusión</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="menu-item has-submenu">
                         <button type="button" class="submenu-toggle" aria-expanded="false">Sección #3 – Balanceo y autoscaling</button>
                         <ul class="submenu">
-                            <li><a href="lab6.html">- Lab 6</a></li>
+                            <li>
+                                <a href="lab6.html">- Laboratorio 6</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="#lab6_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="#lab6_2">&bull; 2. Procedimiento</a></li>
+                                    <li><a href="#lab6_2_1">&bull; 2.1 Creación de AMI para el autoescalado</a></li>
+                                    <li><a href="#lab6_2_2">&bull; 2.2 Comprobación de la VPC generada</a></li>
+                                    <li><a href="#lab6_2_3">&bull; 2.3 Creación del balanceador de carga</a></li>
+                                    <li><a href="#lab6_2_4">&bull; 2.4 Creación plantilla de lanzamiento y grupo de escalado automático</a></li>
+                                    <li><a href="#lab6_2_5">&bull; 2.5 Verificación del funcionamiento del balanceador de carga</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -61,8 +84,8 @@
         <main class="content">
             <section id="seccion-3">
                 <!-- Contenido principal aquí -->
-                <h2>Laboratorio 6: Balanceo y autoscaling</h2>
-                <h3>1. Introducción y objetivo</h3>
+                <h2 id="lab6">Laboratorio 6: Balanceo y autoscaling</h2>
+                <h3 id="lab6_intro">1. Introducción y objetivo</h3>
                 <p>En este laboratorio se abordará la configuración de 
                     balanceo de carga y escalado automático en AWS. 
                     Se aprenderá a distribuir el tráfico entre múltiples instancias 
@@ -72,13 +95,13 @@
                     incluyendo la creación de instancias, la configuración de un 
                     grupo de autoescalado y la implementación de un balanceador de carga.
                 </p>
-                <h3>2. Procedimiento</h3>
+                <h3 id="lab6_2">2. Procedimiento</h3>
                 <p>En esta sección se detallará el procedimiento para configurar el 
                     balanceo de carga y el escalado automático en AWS. 
                     Se incluirán los pasos necesarios para crear instancias, 
                     configurar un grupo de autoescalado y establecer un balanceador de carga.
                 </p>
-                <h4>2.1 Creación de AMI para el autoescalado</h4>
+                <h4 id="lab6_2_1">2.1 Creación de AMI para el autoescalado</h4>
                 <p>Para habilitar el autoescalado, 
                     primero se debe crear una Amazon Machine Image (AMI) 
                     de la instancia que se desea replicar. Esta AMI servirá 
@@ -130,7 +153,7 @@
                     Esto permite que la infraestructura se adapte dinámicamente a las necesidades del tráfico, mejorando la disponibilidad y eficiencia de los recursos. 
                 </p>
 
-                <h4>2.2 Comprobación de la VPC generada</h4>
+                <h4 id="lab6_2_2">2.2 Comprobación de la VPC generada</h4>
                 <p>
                     En esta sección verificaremos que la VPC generada por el laboratorio se ha creado 
                     correctamente y que todos los componentes asociados, 
@@ -148,13 +171,14 @@
                         alt="Detalles de los recursos de la VPC"
                         style="max-width: 100%; height: auto;">
                 
-                <h4>2.3 Creación del balanceador de carga</h4>
+                <h4 id="lab6_2_3">2.3 Creación del balanceador de carga</h4>
                 <p>
                     En esta sección configuraremos un balanceador de carga para distribuir el tráfico entre las instancias del grupo de autoescalado. 
                     Esto asegura que las solicitudes de los usuarios se manejen de manera eficiente y que la carga se distribuya equitativamente.
                 </p>
                 <h4>[CS03] Captura del ELB creado</h4>
-                <h4>2.3.1 Creación del grupo de destino</h4>
+
+                <h4 id="lab6_2_3_1">2.3.1 Creación del grupo de destino</h4>
                 <p>El grupo de destino se utilizará para asociar las instancias que 
                     recibirán el tráfico del balanceador de carga. Esto permite que el balanceador 
                     de carga distribuya las solicitudes de manera eficiente entre las instancias disponibles.
@@ -222,7 +246,7 @@
                         alt="Revisión de la configuración del grupo de destino"
                         style="max-width: 100%; height: auto;">
 
-                <h4>2.3.2 Creación del balanceador de carga</h4>
+                <h4 id="lab6_2_3_2">2.3.2 Creación del balanceador de carga</h4>
                 <p>
                     En esta sección, configuraremos el balanceador de carga que 
                     distribuirá el tráfico entre las instancias asociadas al 
@@ -299,7 +323,7 @@
                     Una vez definidos los parámetros, procedemos a revisar la configuración final del balanceador de carga.
                 </p>
 
-                <h4>2.3.3 Resultado creación del balanceador de carga</h4>
+                <h4 id="lab6_2_3_3">2.3.3 Resultado creación del balanceador de carga</h4>
                 <p>
                     Comprobamos el resultado de la creación del ELB.
                     para ello entramos en el menu de balanceadores de carga y verificamos que el ELB creado aparezca en la lista.
@@ -319,6 +343,173 @@
                 <img src="img/seccion3/CS03_26_EstadoBalanceadorCarga.png"
                         alt="Comprobación del ELB"
                         style="max-width: 100%; height: auto;">
+
+                <h4 id="lab6_2_4">2.4 Creación plantilla de lanzamiento y grupo de escalado automático.</h4>
+                
+                
+                <p>
+                    El siguiente paso consiste en crear la plantilla de lanzamiento y 
+                    el grupo de escalado automático, los cuales permitirán gestionar 
+                    de manera eficiente la capacidad de nuestras instancias en 
+                    función de la demanda.
+                    Las instancias serán creadas y gestionadas automáticamente
+                    según las políticas definidas en el grupo de escalado automático.
+                </p>
+                
+                <h4>[CS04] Captura del autoescaling creado</h4>
+
+                <h4 id="lab6_2_4_1">2.4.1 Creación plantilla de lanzamiento</h4>
+                <p>
+                    Procedemos a crear la plantilla de lanzamiento para el autoescalado.
+                    Para ello accedemos al servicio de EC2 en la consola de AWS y seleccionamos la opción de "Plantillas de lanzamiento" en el menú lateral.
+                    Luego, hacemos clic en "Crear plantilla de lanzamiento".
+                </p>
+                <img src="img/seccion3/CS04_01_AccesoPlantillaLanzamiento.png"
+                        alt="Acceso a plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                <p>Una vez dentro de la sección de creación de la plantilla de lanzamiento,
+                    introducimos los parámetros requeridos por el laboratorio.
+                </p>
+                <p>Nombre de la plantilla de lanzamiento: LabConfig</p>
+                <p>Imagen de máquina de Amazon (AMI) : Web Server AMI</p>
+                <p>Tipo de instancia: t2.micro</p>
+                <p>Nombre del par de claves : vockey</p>
+                <p>Cortafuegos (grupos de seguridad) : Seleccionar grupo de seguridad existente</p>
+                <p>Grupos de seguridad : Web Security Group</p>
+                <img src="img/seccion3/CS04_02_CreacionPlantillaLanzamiento.png"
+                        alt="Creación de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS04_03_CreacionPlantillaLanzamiento.png"
+                        alt="Creación de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS04_04_CreacionPlantillaLanzamiento.png"
+                        alt="Creación de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS04_05_CreacionPlantillaLanzamiento.png"
+                        alt="Creación de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS04_06_CreacionPlantillaLanzamiento.png"
+                        alt="Creación de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                <p>En el apartado de configuración avanzada habilitamos la monitorización detallada de CloudWatch</p>
+                <img src="img/seccion3/CS04_07_CreacionPlantillaLanzamiento.png"
+                        alt="Creación de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    Resultado: La plantilla de lanzamiento se ha creado 
+                    correctamente:
+                </p>
+                
+                <img src="img/seccion3/CS04_08_ResultadoPlantillaLanzamiento.png"
+                        alt="Resultado de plantilla de lanzamiento"
+                        style="max-width: 100%; height: auto;">
+                
+                 <h4 id="lab6_2_4_2">2.4.2 Creación grupo de escalado automático</h4>
+                 <p>
+                    En esta sección crearemos el grupo de escalado automático 
+                    utilizando la plantilla de lanzamiento previamente creada.
+                </p>
+                <p>
+                    Desde el menú de plantillas de lanzamiento seleccionamos la 
+                    plantilla LabConfig, pulsamos en acciones y 
+                    después en crear grupo de Auto Scaling
+                </p>
+                <img src="img/seccion3/CS04_09_CrearGrupoAutoScaling.png"
+                        alt="Creación de grupo de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    A continuación, configuramos los detalles del grupo de Auto Scaling, como el nombre del grupo, la VPC y las subredes.
+                </p>
+                <h5>PASO 1</h5>
+                <img src="img/seccion3/CS04_10_AutoScalingPaso1.png"
+                        alt="Paso 1 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <h5>PASO 2</h5>
+                <img src="img/seccion3/CS04_11_AutoScalingPaso2.png"
+                        alt="Paso 2 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <h5>PASO 3</h5>
+                <img src="img/seccion3/CS04_12_AutoScalingPaso3.png"
+                        alt="Paso 3 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <h5>PASO 4</h5>
+                <img src="img/seccion3/CS04_13_AutoScalingPaso4.png"
+                        alt="Paso 4 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <img src="img/seccion3/CS04_14_AutoScalingPaso4.png"
+                        alt="Paso 4 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <h5>PASO 5</h5>
+                <img src="img/seccion3/CS04_15_AutoScalingPaso5.png"
+                        alt="Paso 5 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <h5>PASO 6</h5>
+                <img src="img/seccion3/CS04_16_AutoScalingPaso6.png"
+                        alt="Paso 6 configuración de Auto Scaling"
+                        style="max-width: 100%; height: auto;">
+                <p>
+                    Una vez terminada la configuración del grupo de Auto Scaling, 
+                    pulsamos en siguiente y revisamos la configuración. Una vez revisada 
+                    confirmamos la creación del grupo de Auto Scaling.
+                </p>
+                <p>
+                    Hemos completado la configuración del grupo de 
+                    Auto Scaling. Ahora, el grupo gestionará 
+                    automáticamente la cantidad de instancias según las 
+                    políticas definidas, utilizando la plantilla de lanzamiento.
+                </p>
+
+                <h4 id="lab6_2_5">2.5 Verificación del funcionamiento del balanceador de carga</h4>
+                <h4>[CS05] Captura de las alarmas en Cloudwatch</h4>
+                <p>
+                    En esta sección, capturaremos las alarmas generadas en Cloudwatch para monitorear el estado de nuestro balanceador de carga y las instancias gestionadas por el grupo de Auto Scaling.
+                </p>
+
+                <h4 id="lab6_2_5_1">2.5.1 Capturas de alarmas en Cloudwatch: Antes de prueba de carga</h4>
+                <p>
+                    Antes de realizar cualquier prueba de carga, 
+                    es importante capturar el estado inicial de las alarmas 
+                    en Cloudwatch. Esto nos permitirá comparar los cambios 
+                    en las alarmas después de la prueba de carga.
+                </p>
+                <img src="img/seccion3/CS05_01_AlarmasAntesDePrueba.png"
+                        alt="Alarmas en Cloudwatch antes de prueba de carga"
+                        style="max-width: 100%; height: auto;">
+                <h4 id="lab6_2_5_2">2.5.2 Capturas de alarmas en Cloudwatch: Después de prueba de carga</h4>
+                <p>
+                    Capturas de las alarmas creadas después de iniciar la prueba de carga en la aplicación WEB del laboratorio
+                </p>
+
+                <p>
+                    Observamos como la métrica del uso de CPU ha subido, en tres minutos debe activarse el auto balanceado.
+                </p>
+                <img src="img/seccion3/CS05_02_AlarmasDespuesDePrueba.png"
+                        alt="Métrica de uso de CPU en Cloudwatch después de prueba de carga"
+                        style="max-width: 100%; height: auto;">
+                <p>
+                    Pasados tres minutos observamos como la alarma se ha activado
+                </p>
+                <img src="img/seccion3/CS05_03_AlarmaActiva.png"
+                        alt="Alarmas en Cloudwatch después de prueba de carga pasado tres minutos"
+                        style="max-width: 100%; height: auto;">
+                <p>
+                    Dentro de EC2 observamos como 2 instancias nuevas se han iniciado:
+                </p>
+                <img src="img/seccion3/CS05_04_InstanciasGeneradas.png"
+                        alt="Instancias nuevas en EC2 después de activarse la alarma"
+                        style="max-width: 100%; height: auto;">
+
+                <p>
+                    Esto confirma que el auto scaling se ha activado correctamente en respuesta a la alarma de Cloudwatch.
+                </p>
+
+
+
+
+
+
 
 
 
