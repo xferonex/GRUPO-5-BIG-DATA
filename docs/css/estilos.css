@@ -316,3 +316,14 @@ header {
     fill: currentColor;
     pointer-events: none;
 }
+
+/* Laboratorio 5: aumnetar tamaño de los títulos de cada captura */
+#lab5_2 h4 {
+    font-size: 1.3rem;
+    margin: 32px 0 12px;
+}
+
+#lab5_2 h5 {
+    font-size: 1.1rem;
+    margin: 24px 0 12px;
+}

@@ -84,8 +84,8 @@
                             <li>
                                 <a href="lab5.html">- Laboratorio 5</a>
                                 <ul class="subsubmenu">
-                                    <li><a href="#lab5_intro">&bull; 1. Introducción y objetivo</a></li>
-                                    <li><a href="#lab5_2">&bull; 2. Procedimiento</a></li>
+                                    <li><a href="lab5.html#lab5_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="lab5.html#lab5_2">&bull; 2. Procedimiento</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -94,7 +94,264 @@
             </nav>
         </aside>
         <main class="content">
-            <!-- Contenido principal aquí -->
+            <!-- INTRO Y OBJETIVO -->
+            <section id="lab5_intro">
+                <h2>Laboratorio 5</h2>
+                <h3>1. Introducción y objetivo</h3>
+                <p>
+                    En este laboratorio montamos un servicio de base de datos en alta
+                    disponibilidad (Amazon RDS con MySQL en configuración Multi-AZ) y
+                    publicamos después, a través de un servidor web EC2, los datos que
+                    contiene.
+                </p>
+                <p>
+                    Hemos elegido este laboratorio porque nos permite trabajar con un
+                    servicio de bases de datos de AWS y ver cómo se comporta ante
+                    despliegues en escenarios web dentro de la misma infraestructura.
+                </p>
+            </section>
+            
+            <!--  PROCEDIMIENTO  -->
+            <section id="lab5_2">
+                <h3>2. Procedimiento</h3>
+            
+                <!-- Captura 01 -->
+                <h4>CS01 - Creación del security group</h4>
+            
+                <img src="img/seccion4/Sg_1.png" alt="Creación del grupo de seguridad DB Security Group"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+                <img src="img/seccion4/Sg_2.png" alt="Regla de entrada MySQL/Aurora con origen el Web Security Group"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Accedemos a la VPC de AWS y creamos un grupo de seguridad llamado
+                    <strong>DB Security Group</strong>, asociado a nuestra Lab VPC.
+                </p>
+                <p>
+                    Configuramos una regla de entrada de tipo <strong>MySQL/Aurora</strong>,
+                    que utiliza el puerto TCP 3306, y seleccionamos como origen el Web
+                    Security Group.
+                </p>
+                <p>
+                    De esta manera, permitimos que nuestro servidor web EC2 pueda
+                    comunicarse con la base de datos RDS, evitando que cualquier otro origen
+                    pueda acceder directamente a ella por este puerto.
+                </p>
+            
+                <!-- Captura 02 -->
+                <h4>CS02 - Creación de grupos de subredes de BBDD</h4>
+            
+                <img src="img/seccion4/Subnet_bbdd_1.png" alt="Creación del grupo de subredes DB-Subnet-Group"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+                <img src="img/seccion4/Subnet_bbdd_2.png" alt="Selección de subredes privadas en dos zonas de disponibilidad"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Accedemos al servicio RDS de AWS y creamos un grupo de subredes llamado
+                    <strong>DB-Subnet-Group</strong>, asociado a nuestra Lab VPC.
+                </p>
+                <p>
+                    Seleccionamos dos subredes privadas, con los rangos IP
+                    <strong>10.0.1.0/24 y 10.0.3.0/24</strong>, ubicadas en dos zonas de
+                    disponibilidad diferentes (us-east-1a y us-east-1b).
+                </p>
+                <p>
+                    Con esta configuración indicamos a RDS en qué subredes puede desplegar
+                    nuestra base de datos y dejamos preparada la infraestructura para
+                    utilizar una configuración Multi-AZ.
+                </p>
+            
+                <!-- Captura 03 -->
+                <h4>CS03 - Creación de la base de datos MySQL</h4>
+            
+                <img src="img/seccion4/Create_ddbb.png" alt="Creación de la base de datos MySQL con plantilla Dev/Test y Multi-AZ"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Accedemos al servicio RDS de AWS para crear nuestra base de datos.
+                    Seleccionamos <strong>MySQL</strong> como motor y utilizamos la plantilla
+                    de desarrollo y pruebas (Dev/Test).
+                </p>
+                <p>
+                    También elegimos una configuración <strong>Multi-AZ</strong>, que
+                    permite disponer de una instancia principal y otra de reserva en
+                    diferentes zonas de disponibilidad.
+                </p>
+                <p>
+                    De esta manera, si la instancia principal falla, AWS puede activar la
+                    instancia de reserva para mantener el servicio disponible.
+                </p>
+            
+                <h5>Configuración de credenciales y selección de la instancia db.t3.micro</h5>
+            
+                <img src="img/seccion4/Create_ddbb_1.png" alt="Credenciales autoadministradas e instancia db.t3.micro"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    En este apartado seleccionamos la opción de
+                    <strong>autoadministrar las credenciales</strong>, para poder establecer
+                    manualmente el usuario y la contraseña de nuestra base de datos, sin
+                    utilizar AWS Secrets Manager.
+                </p>
+                <p>
+                    A continuación, configuramos el tipo de instancia
+                    <strong>db.t3.micro</strong>, que dispone de recursos suficientes para
+                    realizar las pruebas de este laboratorio sin necesidad de utilizar una
+                    instancia de mayor capacidad.
+                </p>
+            
+                <h5>Configuración del almacenamiento y conectividad de la base de datos</h5>
+            
+                <img src="img/seccion4/Create_ddbb_2.png"
+                    alt="Almacenamiento gp3 de 20 GiB y selección de Lab VPC y DB-Subnet-Group"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Configuramos el almacenamiento de nuestra base de datos utilizando un
+                    disco <strong>SSD de uso general (gp3)</strong> con una capacidad de
+                    <strong>20 GiB</strong>, suficiente para las necesidades del laboratorio.
+                </p>
+                <p>
+                    En el apartado de conectividad seleccionamos nuestra
+                    <strong>Lab VPC</strong> y el grupo de subredes
+                    <strong>DB-Subnet-Group</strong> que hemos creado anteriormente.
+                </p>
+                <p>
+                    De esta manera, la base de datos utilizará la infraestructura de red que
+                    ya tenemos preparada en AWS.
+                </p>
+            
+                <h5>Asignación del grupo de seguridad a la base de datos RDS</h5>
+            
+                <img src="img/seccion4/Create_ddbb_3.png" alt="Asignación del DB Security Group a la base de datos"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    En el apartado de conectividad seleccionamos el
+                    <strong>DB Security Group</strong> que hemos creado anteriormente en la
+                    primera tarea del laboratorio.
+                </p>
+                <p>
+                    Este grupo de seguridad permite que nuestro servidor web EC2 pueda
+                    conectarse a la base de datos MySQL a través del puerto 3306, manteniendo
+                    controlado el acceso.
+                </p>
+                <p>
+                    También dejamos desactivada la monitorización adicional, siguiendo las
+                    indicaciones del laboratorio.
+                </p>
+            
+                <h5>Configuración final de la base de datos MySQL</h5>
+            
+                <img src="img/seccion4/Create_ddbb_4.png"
+                    alt="Nombre de base de datos lab, sin cifrado ni copias de seguridad automáticas"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Finalizamos la configuración de nuestra base de datos asignándole el
+                    nombre <strong>lab</strong>, que utilizaremos posteriormente para
+                    conectarnos desde la aplicación web.
+                </p>
+                <p>
+                    También desactivamos el cifrado y las copias de seguridad automáticas,
+                    siguiendo las indicaciones del laboratorio, para simplificar la
+                    configuración y agilizar el despliegue.
+                </p>
+                <p>
+                    Por último, revisamos las opciones de monitorización y mantenimiento
+                    antes de proceder a crear la base de datos.
+                </p>
+            
+                <h5>Creación y comprobación del estado de la base de datos RDS</h5>
+            
+                <img src="img/seccion4/Create_ddbb_5.png" alt="Creación de la base de datos"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+                <img src="img/seccion4/Create_ddbb_6.png" alt="Detalles de la instancia lab-db en RDS"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Una vez finalizada la configuración, pulsamos en
+                    <strong>Crear base de datos</strong> y comprobamos que AWS ha creado
+                    correctamente nuestra instancia <strong>lab-db</strong>.
+                </p>
+                <p>
+                    Accedemos a los detalles de la instancia, donde podemos consultar su
+                    estado, el motor MySQL utilizado y las opciones de conectividad.
+                </p>
+                <p>
+                    En este momento, la base de datos todavía se encuentra en proceso de
+                    configuración, por lo que debemos esperar a que su estado cambie a
+                    <strong>Available (Disponible)</strong> antes de utilizarla.
+                </p>
+            
+                <!-- Captura 04 -->
+                <h4>CS04 - Acceso al servidor web EC2 y configuración de la conexión con RDS</h4>
+            
+                <img src="img/seccion4/Acceso_servicio_web.png" alt="Pantalla RDS de la aplicación web con los datos de conexión"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Accedemos al servidor web EC2 mediante su dirección IP pública,
+                    utilizando el navegador y el protocolo HTTP.
+                </p>
+                <p>
+                    Una vez dentro, seleccionamos el apartado <strong>RDS</strong> e
+                    introducimos los datos de conexión de nuestra base de datos MySQL: el
+                    Endpoint, el nombre de la base de datos <strong>lab</strong>, el usuario
+                    <strong>main</strong> y la contraseña configurada anteriormente.
+                </p>
+                <p>
+                    Con estos datos preparados, pulsamos <strong>Submit</strong> para
+                    establecer la conexión entre nuestra aplicación web y la base de datos
+                    alojada en Amazon RDS.
+                </p>
+            
+                <h5>Comprobación de la conexión entre EC2 y RDS</h5>
+            
+                <img src="img/seccion4/Acceso_servicio_web_1.png" alt="Aplicación Address Book conectada a la base de datos RDS"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Una vez introducidos los datos de conexión, comprobamos que la
+                    aplicación web se conecta correctamente a nuestra base de datos MySQL
+                    alojada en Amazon RDS.
+                </p>
+                <p>
+                    Se muestra la aplicación <strong>Address Book</strong>, donde podemos
+                    consultar los contactos almacenados y realizar operaciones como añadir,
+                    modificar o eliminar registros.
+                </p>
+                <p>
+                    Esto nos permite comprobar que la comunicación entre nuestro servidor
+                    EC2 y la base de datos RDS funciona correctamente.
+                </p>
+            
+                <h5>Pruebas de inserción y modificación de registros en MySQL</h5>
+            
+                <img src="img/seccion4/Acceso_servicio_web_2.png" alt="Alta de un contacto de prueba en Address Book"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+                <img src="img/seccion4/Acceso_servicio_web_3.png" alt="Edición del teléfono de un contacto en Address Book"
+                    style="display: block; max-width: 800px; width: 100%; height: auto; margin: 0 0 16px 0;">
+            
+                <p>
+                    Para comprobar que nuestra base de datos funciona correctamente,
+                    realizamos diferentes operaciones desde la aplicación
+                    <strong>Address Book</strong>.
+                </p>
+                <p>
+                    Primero añadimos un contacto de prueba y comprobamos que aparece en la
+                    lista junto con los contactos existentes.
+                </p>
+                <p>
+                    Después utilizamos la opción <strong>Edit</strong> para modificar el
+                    número de teléfono de otro contacto y comprobamos que la aplicación nos
+                    permite actualizar sus datos.
+                </p>
+                <p>
+                    Con estas pruebas verificamos que podemos insertar y modificar
+                    información en nuestra base de datos MySQL alojada en Amazon RDS.
+                </p>
+            </section>
 
         </main>
     </div>
