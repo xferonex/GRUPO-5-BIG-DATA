@@ -290,7 +290,133 @@ las cinco V y relacionarlas con ejemplos concretos de su plataforma.
 
 
 <h3>1.b. Orden de criticidad de las cinco V</h3>
-<p>Pendiente de desarrollar.</p>
+
+<p>
+Aunque las cinco V del Big Data son importantes, no todas tienen
+la misma criticidad para una empresa como Netflix. Hemos decidido
+ordenarlas teniendo en cuenta la cantidad de información que genera
+la plataforma, la rapidez con la que necesita procesarla y cómo
+utiliza esos datos para mejorar su servicio.
+</p>
+
+<table class="services-table">
+  <thead>
+    <tr>
+      <th>Posición</th>
+      <th>V del Big Data</th>
+      <th>Justificación aplicada a Netflix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1.º</strong></td>
+      <td><strong>Velocidad</strong></td>
+      <td>
+        Consideramos que es la más crítica porque Netflix recibe
+        continuamente información de usuarios que reproducen
+        contenidos en diferentes partes del mundo. Algunos datos,
+        como los relacionados con errores o problemas de reproducción,
+        necesitan analizarse rápidamente. Si la plataforma tarda
+        demasiado en detectar estos problemas, la experiencia
+        de los usuarios puede verse afectada.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>2.º</strong></td>
+      <td><strong>Volumen</strong></td>
+      <td>
+        Netflix genera y almacena una cantidad enorme de información
+        relacionada con reproducciones, búsquedas, dispositivos y
+        hábitos de visualización. Esta cantidad de datos hace
+        necesario disponer de sistemas que puedan ampliar su
+        capacidad de almacenamiento y procesamiento conforme
+        aumenta el número de usuarios.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>3.º</strong></td>
+      <td><strong>Valor</strong></td>
+      <td>
+        Los datos tienen que servir para obtener algún beneficio.
+        Netflix puede utilizarlos para personalizar recomendaciones,
+        conocer mejor los gustos de los usuarios y tomar decisiones
+        sobre los contenidos de su catálogo. Aunque es muy importante
+        para el negocio, primero debe ser capaz de recoger y
+        procesar correctamente la información.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>4.º</strong></td>
+      <td><strong>Veracidad</strong></td>
+      <td>
+        Es importante que los datos sean fiables para no sacar
+        conclusiones equivocadas. Por ejemplo, que un usuario
+        abandone una película no significa necesariamente que
+        no le guste. Si Netflix interpreta mal estos datos,
+        sus recomendaciones pueden ser menos acertadas.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>5.º</strong></td>
+      <td><strong>Variedad</strong></td>
+      <td>
+        Netflix trabaja con distintos tipos de información,
+        como historiales, búsquedas, datos técnicos y características
+        de los contenidos. Aunque necesita herramientas capaces
+        de gestionar estos formatos, consideramos que en este
+        caso supone un reto técnico menor que procesar rápidamente
+        grandes cantidades de datos.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>¿Qué V condiciona más el diseño técnico de Netflix?</h3>
+
+<p>
+En nuestro análisis, consideramos que <strong>la velocidad es
+la V que más condiciona el diseño técnico de Netflix</strong>.
+</p>
+
+<p>
+Esto se debe a que Netflix tiene usuarios conectados continuamente
+desde diferentes países y dispositivos. Mientras utilizan el
+servicio, se generan eventos relacionados con las reproducciones,
+las búsquedas y el funcionamiento de la aplicación.
+</p>
+
+<p>
+Para gestionar esta información, Netflix necesita una infraestructura
+capaz de recibir muchos eventos al mismo tiempo y procesar
+rápidamente aquellos que requieren una respuesta inmediata.
+</p>
+
+<p>
+Por ejemplo, si se producen errores de reproducción en una
+determinada zona, es importante detectarlos cuanto antes
+para investigar el problema y reducir su impacto.
+</p>
+
+<p>
+Por este motivo, la plataforma necesita sistemas distribuidos
+que permitan repartir el procesamiento entre diferentes
+servidores y aumentar su capacidad cuando sea necesario.
+</p>
+
+<p>
+<strong>En conclusión,</strong> hemos situado la velocidad en
+primera posición porque condiciona cómo se reciben y procesan
+los datos. El volumen ocupa el segundo lugar porque también
+obliga a utilizar una infraestructura escalable, capaz de
+trabajar con grandes cantidades de información.
+</p>
+
+<p>
+Este orden es nuestra valoración del caso de Netflix.
+No todos los datos necesitan procesarse en tiempo real:
+algunos análisis pueden realizarse posteriormente por lotes.
+</p>
+
 
 <h3>1.c. Herramientas del ecosistema Hadoop</h3>
 <p>Pendiente de desarrollar.</p>
