@@ -289,7 +289,8 @@ header {
     font-weight: 700;
 }
 
-.sidebar-nav .has-submenu.open .submenu {
+.sidebar-nav .has-submenu.open > .submenu {
+
     max-height: 1000px;
    /* overflow-y: auto;*/
 }
