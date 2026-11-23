@@ -107,8 +107,33 @@ function initSidebar() {
     });
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSidebar);
-} else {
-    initSidebar();
+
+async function cargarMenuCompartido() {
+    const contenedor = document.querySelector('.sidebar-nav');
+
+    if (!contenedor) return;
+
+    try {
+        const respuesta = await fetch('menu.html');
+
+        if (!respuesta.ok) {
+            throw new Error('No se ha podido cargar el menú');
+        }
+
+        const html = await respuesta.text();
+        contenedor.innerHTML = html;
+
+        initSidebar();
+    } catch (error) {
+        console.error('Error al cargar el menú compartido:', error);
+        initSidebar();
+    }
 }
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', cargarMenuCompartido);
+} else {
+    cargarMenuCompartido();
+}
+
+
