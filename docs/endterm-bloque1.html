@@ -932,7 +932,230 @@ según las necesidades de la empresa.
 <hr>
 
 <h2>3. Diferencias entre MySQL y HiveSQL</h2>
-<p>Pendiente de desarrollar.</p>
+
+<h2>3. Diferencias entre MySQL y HiveSQL</h2>
+
+<p>
+MySQL y HiveSQL (también llamado HiveQL) utilizan lenguajes
+parecidos a SQL, pero están pensados para necesidades diferentes.
+MySQL se utiliza principalmente para gestionar bases de datos
+relacionales y realizar operaciones sobre sus registros.
+En cambio, Apache Hive está orientado al análisis de grandes
+cantidades de datos mediante procesamiento distribuido.
+</p>
+
+<p>
+Por ejemplo, una aerolínea podría utilizar MySQL para gestionar
+reservas y Hive para analizar los registros históricos de vuelos,
+retrasos y ocupación de aviones.
+</p>
+
+<h3>3.1. Principales diferencias de lenguaje</h3>
+
+<table class="services-table">
+  <thead>
+    <tr>
+      <th>Característica</th>
+      <th>MySQL</th>
+      <th>HiveSQL / HiveQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Lenguaje</strong></td>
+      <td>Utiliza SQL con funciones propias de MySQL.</td>
+      <td>
+        Utiliza HiveQL, un lenguaje parecido a SQL,
+        con funciones y extensiones propias.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Tipos de datos</strong></td>
+      <td>
+        Utiliza tipos como INT, VARCHAR, DATETIME y JSON.
+      </td>
+      <td>
+        Utiliza tipos como INT, STRING, TIMESTAMP,
+        ARRAY, MAP y STRUCT.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>INSERT, UPDATE y DELETE</strong></td>
+      <td>
+        Permite insertar, actualizar y eliminar registros
+        de forma habitual.
+      </td>
+      <td>
+        Permite insertar datos, pero UPDATE y DELETE
+        requieren tablas compatibles con operaciones
+        transaccionales.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>LIMIT</strong></td>
+      <td>
+        Permite limitar resultados con LIMIT.
+      </td>
+      <td>
+        También permite utilizar LIMIT.
+        En versiones actuales admite OFFSET.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Funciones</strong></td>
+      <td>
+        Incluye funciones para fechas, textos,
+        cálculos y operaciones con JSON.
+      </td>
+      <td>
+        Tiene funciones similares, aunque algunas
+        utilizan una sintaxis o comportamiento diferente.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Datos complejos</strong></td>
+      <td>
+        Puede almacenar datos JSON y utilizar
+        tablas relacionadas.
+      </td>
+      <td>
+        Dispone de tipos complejos nativos
+        como ARRAY, MAP y STRUCT.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Organización de datos</strong></td>
+      <td>
+        Permite crear índices para optimizar
+        las consultas.
+      </td>
+      <td>
+        Permite definir particiones mediante
+        PARTITIONED BY y agrupaciones con CLUSTERED BY.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>3.2. Ejemplos de diferencias de sintaxis</h3>
+
+<h4>Ejemplo 1. Crear una tabla</h4>
+
+<p>
+En MySQL podemos crear una tabla de vuelos utilizando
+VARCHAR para el destino y DATETIME para la fecha.
+</p>
+
+<pre><code>CREATE TABLE vuelos (
+    id INT PRIMARY KEY,
+    destino VARCHAR(100),
+    fecha DATETIME
+);</code></pre>
+
+<p>
+En HiveQL podemos utilizar STRING para el destino
+y TIMESTAMP para la fecha. También podemos indicar
+el formato en el que se almacenarán los datos.
+</p>
+
+<pre><code>CREATE TABLE vuelos (
+    id INT,
+    destino STRING,
+    fecha TIMESTAMP
+)
+STORED AS PARQUET;</code></pre>
+
+<p>
+Una diferencia es que MySQL permite definir
+claves primarias para controlar la integridad
+de los registros. En Hive, las restricciones
+de clave primaria no se aplican de la misma
+forma que en MySQL.
+</p>
+
+<h4>Ejemplo 2. Actualizar registros</h4>
+
+<p>
+En MySQL podemos modificar directamente
+el destino de un vuelo mediante UPDATE.
+</p>
+
+<pre><code>UPDATE vuelos
+SET destino = 'Madrid'
+WHERE id = 10;</code></pre>
+
+<p>
+HiveQL también puede utilizar UPDATE, pero
+solamente en tablas y configuraciones compatibles
+con operaciones transaccionales.
+Por tanto, no todas las tablas de Hive permiten
+modificar registros de esta manera.
+</p>
+
+<h4>Ejemplo 3. Trabajar con datos complejos</h4>
+
+<p>
+HiveQL permite utilizar tipos de datos complejos
+como ARRAY. Por ejemplo, podríamos crear
+una tabla que almacene una lista de equipajes
+asociada a cada pasajero.
+</p>
+
+<pre><code>CREATE TABLE pasajeros (
+    id INT,
+    nombre STRING,
+    equipajes ARRAY&lt;STRING&gt;
+);</code></pre>
+
+<p>
+En MySQL no existe ese mismo tipo ARRAY nativo,
+aunque podemos representar colecciones mediante
+JSON o utilizando tablas relacionadas.
+</p>
+
+<h3>3.3. Conclusión</h3>
+
+<p>
+Después de comparar los dos lenguajes, podemos
+decir que tienen muchas instrucciones en común,
+como SELECT, WHERE, JOIN, GROUP BY y ORDER BY.
+Sin embargo, existen diferencias en los tipos
+de datos, las funciones y las operaciones
+que permiten realizar sobre las tablas.
+</p>
+
+<p>
+Consideramos que MySQL sería más adecuado
+para gestionar operaciones habituales de una
+aerolínea, como consultar o actualizar reservas.
+En cambio, HiveQL sería útil para analizar
+grandes cantidades de datos históricos,
+como vuelos realizados, retrasos o estadísticas
+de pasajeros.
+</p>
+
+<p>
+Por tanto, no creemos que uno sea mejor que
+el otro en todos los casos, sino que cada
+uno está pensado para necesidades diferentes.
+</p>
+
+<h4>Fuentes consultadas</h4>
+
+<ul>
+  <li>
+    <a href="https://dev.mysql.com/doc/refman/8.4/en/"
+       target="_blank" rel="noopener noreferrer">
+      Documentación oficial de MySQL
+    </a>
+  </li>
+  <li>
+    <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual"
+       target="_blank" rel="noopener noreferrer">
+      Manual oficial del lenguaje Apache Hive
+    </a>
+  </li>
+</ul>
 
 <hr>
 
