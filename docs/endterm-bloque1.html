@@ -559,8 +559,375 @@ tradicional.
 
 <hr>
 
+
 <h2>2. Hadoop: on-premise frente a la nube</h2>
-<p>Pendiente de desarrollar.</p>
+
+<p>
+Hadoop permite almacenar y procesar grandes cantidades de datos
+utilizando varios servidores que trabajan conjuntamente.
+A la hora de utilizarlo, una empresa puede instalarlo en sus
+propios servidores (on-premise) o utilizar servicios gestionados
+en la nube.
+</p>
+
+<p>
+Para realizar esta comparación hemos elegido
+<strong>Cloudera on-premise</strong> y
+<strong>Amazon EMR en AWS</strong>.
+Creemos que son dos buenas opciones para entender las diferencias
+entre gestionar una infraestructura propia y utilizar
+los servicios de un proveedor de nube.
+</p>
+
+<h3>2.1. Cloudera on-premise</h3>
+
+<p>
+Cloudera es una plataforma que permite trabajar con grandes
+cantidades de datos utilizando diferentes herramientas del
+ecosistema Hadoop. En una instalación on-premise, la empresa
+utiliza sus propios servidores y se encarga de mantenerlos,
+configurarlos y ampliar su capacidad cuando sea necesario.
+</p>
+
+<p>
+Por ejemplo, una aerolínea podría utilizar Cloudera para
+almacenar información sobre vuelos, reservas, retrasos
+y equipajes, y después analizar esos datos para mejorar
+su funcionamiento.
+</p>
+
+<h4>Principales módulos de Cloudera</h4>
+
+<table class="services-table">
+  <thead>
+    <tr>
+      <th>Módulo</th>
+      <th>¿Para qué sirve?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>HDFS</strong></td>
+      <td>
+        Permite almacenar grandes cantidades de datos
+        repartidos entre diferentes servidores.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>YARN</strong></td>
+      <td>
+        Gestiona los recursos de los servidores y organiza
+        la ejecución de las aplicaciones de procesamiento.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Apache Spark</strong></td>
+      <td>
+        Procesa y analiza grandes cantidades de información
+        de forma distribuida.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Apache Hive</strong></td>
+      <td>
+        Permite realizar consultas y analizar datos utilizando
+        un lenguaje parecido a SQL.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Apache HBase</strong></td>
+      <td>
+        Es una base de datos NoSQL que permite consultar
+        y actualizar grandes conjuntos de datos
+        con baja latencia.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Cloudera Manager</strong></td>
+      <td>
+        Facilita la instalación, configuración,
+        administración y supervisión de los servicios.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Apache Ranger</strong></td>
+      <td>
+        Permite gestionar permisos y políticas de seguridad
+        para controlar quién puede acceder a los datos.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+Por ejemplo, la aerolínea podría guardar los registros
+históricos de vuelos en HDFS, utilizar Spark para analizar
+los retrasos y consultar los resultados mediante Hive.
+</p>
+
+<h3>2.2. Amazon EMR en AWS</h3>
+
+<p>
+Amazon EMR es un servicio gestionado de AWS que permite
+ejecutar herramientas de Big Data como Hadoop, Spark
+y Hive utilizando infraestructura en la nube.
+</p>
+
+<p>
+La principal ventaja es que la empresa no necesita
+comprar servidores físicos para empezar.
+AWS facilita la creación y administración de los entornos,
+aunque la empresa sigue siendo responsable de configurar
+correctamente sus aplicaciones, permisos y datos.
+</p>
+
+<p>
+Por ejemplo, una aerolínea podría utilizar Amazon EMR
+para analizar información sobre reservas, vuelos
+y ocupación de aviones, aumentando los recursos
+cuando necesitara procesar más datos.
+</p>
+
+<h4>Principales módulos y servicios de Amazon EMR</h4>
+
+<table class="services-table">
+  <thead>
+    <tr>
+      <th>Módulo o servicio</th>
+      <th>¿Para qué sirve?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Amazon EMR</strong></td>
+      <td>
+        Permite crear y administrar entornos donde ejecutar
+        aplicaciones de procesamiento de Big Data.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hadoop / YARN</strong></td>
+      <td>
+        Permite ejecutar trabajos distribuidos y gestionar
+        los recursos utilizados por las aplicaciones.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Apache Spark</strong></td>
+      <td>
+        Permite procesar grandes cantidades de datos
+        y realizar análisis distribuidos.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Apache Hive</strong></td>
+      <td>
+        Permite consultar y analizar información
+        mediante instrucciones similares a SQL.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Amazon S3</strong></td>
+      <td>
+        Es un servicio de almacenamiento de AWS que permite
+        guardar grandes cantidades de datos de forma escalable,
+        independientemente de los servidores de procesamiento.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Amazon EC2</strong></td>
+      <td>
+        Proporciona servidores virtuales cuando utilizamos
+        Amazon EMR sobre instancias EC2.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Amazon CloudWatch</strong></td>
+      <td>
+        Permite supervisar métricas del sistema
+        y configurar alertas para detectar problemas.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>AWS IAM</strong></td>
+      <td>
+        Permite gestionar usuarios, roles y permisos
+        para controlar el acceso a los recursos.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+Amazon S3, EC2, CloudWatch e IAM son servicios
+complementarios de AWS que pueden utilizarse junto
+con Amazon EMR. No son módulos internos de Hadoop.
+</p>
+
+<h3>2.3. Comparación entre Cloudera y Amazon EMR</h3>
+
+<p>
+Para decidir qué solución sería más adecuada,
+hemos comparado los aspectos que consideramos
+más importantes: el coste, el mantenimiento,
+la escalabilidad y el control de la infraestructura.
+</p>
+
+<table class="services-table">
+  <thead>
+    <tr>
+      <th>Aspecto</th>
+      <th>Cloudera on-premise</th>
+      <th>Amazon EMR en AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Coste inicial</strong></td>
+      <td>
+        Alto, porque hay que comprar servidores,
+        preparar la infraestructura y asumir
+        posibles costes de suscripción.
+      </td>
+      <td>
+        Menor, porque no es necesario comprar
+        servidores físicos para empezar.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Coste de funcionamiento</strong></td>
+      <td>
+        Incluye electricidad, mantenimiento,
+        personal técnico y posibles licencias.
+      </td>
+      <td>
+        Se paga por los recursos y servicios utilizados.
+        Si no se controla el consumo, el coste puede aumentar.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Mantenimiento</strong></td>
+      <td>
+        La empresa debe mantener los servidores,
+        solucionar averías y gestionar las actualizaciones.
+      </td>
+      <td>
+        AWS se encarga de parte de la infraestructura,
+        reduciendo las tareas de mantenimiento físico.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Escalabilidad</strong></td>
+      <td>
+        Para aumentar la capacidad puede ser necesario
+        comprar e instalar nuevos servidores.
+      </td>
+      <td>
+        Permite aumentar o reducir los recursos
+        con mayor facilidad según las necesidades.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Control</strong></td>
+      <td>
+        La empresa tiene mayor control directo
+        sobre los equipos y la infraestructura.
+      </td>
+      <td>
+        La empresa configura sus servicios,
+        pero depende de la infraestructura de AWS.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Puesta en marcha</strong></td>
+      <td>
+        Requiere preparar los servidores
+        e instalar y configurar la plataforma.
+      </td>
+      <td>
+        Generalmente permite empezar más rápidamente
+        sin preparar servidores físicos propios.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>2.4. Nuestra recomendación para una aerolínea</h3>
+
+<p>
+Si una aerolínea tuviera que crear hoy su plataforma
+de Big Data desde cero, nosotros elegiríamos
+<strong>Amazon EMR en AWS</strong>.
+</p>
+
+<p>
+El primer motivo es el <strong>coste inicial</strong>.
+Con una solución on-premise, la empresa tendría que
+comprar servidores y preparar toda la infraestructura
+necesaria. En cambio, con AWS podría empezar utilizando
+los recursos que necesitara, sin realizar una inversión
+tan grande en equipos físicos.
+</p>
+
+<p>
+Otro motivo importante es el <strong>mantenimiento</strong>.
+En una instalación propia, la aerolínea tendría que
+encargarse de los servidores, las averías y buena parte
+de las actualizaciones. Con Amazon EMR, AWS se ocupa
+de parte de estas tareas, aunque la empresa sigue
+teniendo que gestionar la seguridad, los datos
+y las aplicaciones.
+</p>
+
+<p>
+También consideramos importante la
+<strong>escalabilidad</strong>.
+Una aerolínea puede tener épocas con más vuelos
+y pasajeros, como las vacaciones de verano o Navidad.
+En esos momentos podría necesitar procesar más
+información. Con AWS sería más sencillo aumentar
+los recursos y reducirlos cuando ya no fueran necesarios.
+</p>
+
+<p>
+Como inconveniente, habría que controlar el consumo
+para evitar gastos elevados y tener en cuenta
+la dependencia del proveedor. También sería necesario
+proteger adecuadamente los datos personales
+de los pasajeros.
+</p>
+
+<h4>Conclusión</h4>
+
+<p>
+En conclusión, pensamos que Amazon EMR sería la mejor
+opción para una aerolínea que empieza desde cero,
+porque permite comenzar sin comprar una gran
+infraestructura, necesita menos mantenimiento
+de servidores propios y facilita ampliar la capacidad
+según las necesidades de la empresa.
+</p>
+
+<h4>Fuentes consultadas</h4>
+
+<ul>
+  <li>
+    <a href="https://docs.cloudera.com/" target="_blank" rel="noopener noreferrer">
+      Documentación oficial de Cloudera
+    </a>
+  </li>
+  <li>
+    <a href="https://aws.amazon.com/es/emr/" target="_blank" rel="noopener noreferrer">
+      Amazon EMR - AWS
+    </a>
+  </li>
+  <li>
+    <a href="https://aws.amazon.com/es/emr/pricing/" target="_blank" rel="noopener noreferrer">
+      Precios de Amazon EMR
+    </a>
+  </li>
+</ul>
+
 
 <hr>
 
