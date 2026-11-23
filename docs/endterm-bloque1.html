@@ -1159,8 +1159,302 @@ uno está pensado para necesidades diferentes.
 
 <hr>
 
+
 <h2>4. Apache Spark frente a Hadoop MapReduce</h2>
-<p>Pendiente de desarrollar.</p>
+
+<p>
+    Apache Spark y Hadoop MapReduce son dos tecnologías que permiten
+    procesar grandes cantidades de datos repartiendo el trabajo
+    entre varios servidores. Sin embargo, tienen diferencias
+    importantes en la forma de procesar la información.
+</p>
+
+<p>
+    Una de las diferencias principales es el uso de la memoria RAM
+    y del disco. Apache Spark puede mantener en memoria los datos
+    que necesita reutilizar, mientras que Hadoop MapReduce suele
+    escribir y leer resultados intermedios en disco entre las
+    distintas etapas de procesamiento.
+</p>
+
+<p>
+    Para comprender mejor estas diferencias, vamos a analizar
+    tres situaciones que podrían darse en una aerolínea y
+    justificar qué tecnología utilizaríamos en cada caso.
+</p>
+
+<h3>4.1. Escenario A: panel de retrasos en tiempo real</h3>
+
+<p>
+    <strong>Tecnología elegida: Apache Spark (Structured Streaming).</strong>
+</p>
+
+<p>
+    En este escenario, el aeropuerto necesita mostrar en un panel
+    los vuelos que están acumulando retrasos, con un tiempo máximo
+    de respuesta de pocos segundos.
+</p>
+
+<p>
+    Consideramos que Apache Spark sería la opción más adecuada
+    porque permite procesar continuamente los datos que van llegando
+    mediante Spark Structured Streaming.
+</p>
+
+<p>
+    Por ejemplo, cuando se modifica la hora estimada de salida
+    de un avión, el sistema debe detectar ese cambio y actualizar
+    la información del panel rápidamente.
+</p>
+
+<p>
+    <strong>Relación entre memoria y disco:</strong>
+    Spark puede mantener en memoria información necesaria para
+    los cálculos y evitar muchas escrituras intermedias en disco.
+    Esto ayuda a reducir el tiempo de procesamiento.
+    En cambio, Hadoop MapReduce está pensado principalmente
+    para trabajos por lotes y suele utilizar el disco entre
+    las diferentes etapas, lo que aumenta la latencia.
+</p>
+
+<p>
+    Por este motivo, escogeríamos Apache Spark, ya que permite
+    trabajar con información que cambia constantemente y obtener
+    resultados con poca demora, siempre que el resto de la
+    infraestructura también esté preparado para ello.
+</p>
+
+<h3>4.2. Escenario B: análisis nocturno del histórico de vuelos</h3>
+
+<p>
+    <strong>Tecnología elegida: Hadoop MapReduce.</strong>
+</p>
+
+<p>
+    En este caso, la aerolínea necesita analizar varios terabytes
+    de información correspondientes a los vuelos de los últimos
+    cinco años para elaborar un informe de puntualidad.
+</p>
+
+<p>
+    Como el trabajo se realiza cada noche y solamente necesitamos
+    recorrer el conjunto de datos una vez, consideramos que
+    Hadoop MapReduce sería una opción válida.
+</p>
+
+<p>
+    MapReduce permite dividir el procesamiento entre diferentes
+    servidores y trabajar con grandes cantidades de información
+    almacenada de forma distribuida.
+</p>
+
+<p>
+    <strong>Relación entre memoria y disco:</strong>
+    MapReduce utiliza habitualmente el disco para almacenar
+    resultados intermedios. Aunque estas operaciones pueden
+    aumentar el tiempo de ejecución, en este escenario podemos
+    aceptarlas porque no necesitamos obtener una respuesta
+    en pocos segundos.
+</p>
+
+<p>
+    Además, como se trata de una única pasada sobre los datos,
+    no necesitamos mantener el mismo conjunto de información
+    en memoria RAM para reutilizarlo durante muchas iteraciones.
+</p>
+
+<p>
+    Aunque Apache Spark también podría realizar este trabajo
+    e incluso completarlo más rápido, hemos escogido MapReduce
+    porque se adapta a un procesamiento masivo por lotes
+    sin necesidad de resultados inmediatos.
+</p>
+
+<h3>4.3. Escenario C: entrenamiento de un modelo predictivo</h3>
+
+<p>
+    <strong>Tecnología elegida: Apache Spark.</strong>
+</p>
+
+<p>
+    En este escenario, la aerolínea quiere entrenar un modelo
+    que permita calcular la probabilidad de que un vuelo
+    sufra un retraso.
+</p>
+
+<p>
+    Para entrenar determinados modelos de aprendizaje automático
+    es necesario recorrer muchas veces el mismo conjunto de datos,
+    realizando cálculos y ajustando el modelo en cada iteración.
+</p>
+
+<p>
+    Por ejemplo, podríamos utilizar información sobre retrasos
+    anteriores, horarios, aeropuertos, rutas y condiciones
+    meteorológicas para intentar predecir futuros retrasos.
+</p>
+
+<p>
+    <strong>Relación entre memoria y disco:</strong>
+    Apache Spark permite conservar en memoria RAM los datos
+    que se utilizan repetidamente, siempre que dispongamos
+    de recursos suficientes.
+</p>
+
+<p>
+    Esto evita tener que leer continuamente los mismos datos
+    desde el disco. Si utilizáramos Hadoop MapReduce,
+    las diferentes iteraciones podrían necesitar numerosas
+    lecturas y escrituras en disco, aumentando considerablemente
+    el tiempo de entrenamiento.
+</p>
+
+<p>
+    Además, Spark dispone de una biblioteca llamada
+    <strong>MLlib</strong>, que proporciona herramientas
+    para trabajar con algoritmos de aprendizaje automático.
+</p>
+
+<p>
+    Por estos motivos, consideramos que Apache Spark sería
+    la mejor opción para este escenario.
+</p>
+
+<h3>4.4. Diferencia fundamental: memoria RAM frente a disco</h3>
+
+<p>
+    La principal diferencia que hemos tenido en cuenta para
+    tomar nuestras decisiones es la forma en que ambas
+    tecnologías gestionan los datos durante el procesamiento.
+</p>
+
+<p>
+    <strong>Apache Spark:</strong> puede mantener datos y resultados
+    intermedios en memoria RAM, lo que permite reutilizarlos
+    sin tener que acceder continuamente al disco.
+    Esto resulta especialmente útil cuando necesitamos
+    procesar información rápidamente o realizar muchas
+    operaciones sobre los mismos datos.
+</p>
+
+<p>
+    <strong>Hadoop MapReduce:</strong> utiliza un modelo de
+    procesamiento por lotes en el que los resultados intermedios
+    de las distintas etapas suelen escribirse y leerse desde
+    el disco. Esto permite trabajar con grandes cantidades
+    de información, pero puede aumentar el tiempo necesario
+    para completar procesos con muchas etapas o iteraciones.
+</p>
+
+<p>
+    Esto no significa que Spark trabaje siempre únicamente
+    en memoria ni que MapReduce no utilice memoria RAM.
+    La diferencia es que Spark facilita la reutilización
+    de datos en memoria, mientras que MapReduce depende
+    más de las operaciones intermedias de disco.
+</p>
+
+<h3>4.5. Tabla resumen de los tres escenarios</h3>
+
+<table class="services-table">
+    <thead>
+        <tr>
+            <th>Escenario</th>
+            <th>Tecnología elegida</th>
+            <th>Justificación</th>
+            <th>Memoria frente a disco</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <strong>A. Panel de retrasos en tiempo real</strong>
+            </td>
+            <td>
+                Apache Spark
+            </td>
+            <td>
+                Necesitamos procesar continuamente los cambios
+                de los vuelos y mostrar resultados en pocos segundos.
+            </td>
+            <td>
+                Spark puede aprovechar la memoria RAM y reducir
+                las escrituras intermedias en disco, ayudando
+                a conseguir una menor latencia.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>B. Histórico de cinco años de vuelos</strong>
+            </td>
+            <td>
+                Hadoop MapReduce
+            </td>
+            <td>
+                Se trata de un procesamiento masivo por lotes,
+                de una sola pasada y sin necesidad de
+                respuesta inmediata.
+            </td>
+            <td>
+                Podemos aceptar las lecturas y escrituras
+                intermedias en disco porque no necesitamos
+                reutilizar los mismos datos durante muchas iteraciones.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>C. Modelo predictivo de retrasos</strong>
+            </td>
+            <td>
+                Apache Spark
+            </td>
+            <td>
+                El entrenamiento necesita recorrer muchas veces
+                los mismos datos para ajustar el modelo.
+            </td>
+            <td>
+                Spark puede conservar los datos reutilizados
+                en memoria RAM y evitar numerosas lecturas
+                repetidas desde el disco.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>4.6. Conclusión</h3>
+
+<p>
+    Después de analizar los tres escenarios, consideramos
+    que Apache Spark sería la mejor opción para el panel
+    de retrasos en tiempo real y para entrenar el modelo
+    predictivo.
+</p>
+
+<p>
+    En el primer caso necesitamos procesar los cambios con
+    una latencia de pocos segundos, mientras que en el
+    tercero necesitamos recorrer los mismos datos
+    repetidamente durante el entrenamiento.
+</p>
+
+<p>
+    Para el análisis nocturno del histórico de vuelos
+    escogeríamos Hadoop MapReduce, porque se trata
+    de un trabajo por lotes, de una sola pasada
+    y sin necesidad de obtener resultados inmediatos.
+    Aunque Spark también podría ser una buena alternativa,
+    MapReduce cumple las necesidades planteadas.
+</p>
+
+<p>
+    En definitiva, pensamos que la diferencia entre
+    aprovechar la memoria RAM y realizar más operaciones
+    de lectura y escritura en disco es fundamental
+    para elegir la tecnología adecuada.
+    La decisión depende de la rapidez que necesitamos,
+    del volumen de información y de si debemos
+    procesar los mismos datos una o muchas veces.
+</p>
 
         </main>
     </div>
