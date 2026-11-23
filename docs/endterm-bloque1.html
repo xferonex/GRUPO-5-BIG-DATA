@@ -418,8 +418,144 @@ algunos análisis pueden realizarse posteriormente por lotes.
 </p>
 
 
+
 <h3>1.c. Herramientas del ecosistema Hadoop</h3>
-<p>Pendiente de desarrollar.</p>
+
+<p>
+En el apartado anterior hemos considerado que las dos V más críticas
+para Netflix son la velocidad y el volumen. Para gestionar estas
+necesidades, podemos utilizar diferentes herramientas del ecosistema
+Hadoop y otras tecnologías complementarias, que permiten trabajar con
+grandes cantidades de información repartiendo el almacenamiento y el
+procesamiento entre varios servidores.
+</p>
+
+<h4>1. Velocidad: YARN, Apache Spark y Apache Kafka</h4>
+
+<p>
+La velocidad es importante porque Netflix recibe continuamente
+información de sus usuarios, como las reproducciones, las búsquedas
+o las pausas de los vídeos.
+</p>
+
+<p>
+Dentro del ecosistema Hadoop encontramos <strong>YARN</strong>,
+una herramienta que se encarga de gestionar los recursos de los
+servidores y organizar la ejecución de las aplicaciones.
+Esto permite repartir el trabajo entre diferentes máquinas y
+aprovechar mejor los recursos disponibles.
+</p>
+
+<p>
+Para procesar los datos rápidamente, también podríamos utilizar
+<strong>Apache Spark</strong>, especialmente Spark Structured
+Streaming, que permite analizar grandes cantidades de información
+conforme se van recibiendo.
+</p>
+
+<p>
+Otra herramienta complementaria es <strong>Apache Kafka</strong>,
+que permite recoger y distribuir los eventos que se generan
+continuamente en la plataforma.
+</p>
+
+<p>
+Por ejemplo, si muchos usuarios empiezan a tener problemas al
+reproducir una película, Kafka podría recoger los eventos relacionados
+con esos errores y Spark analizarlos rápidamente para ayudar a
+detectar el problema.
+</p>
+
+<p>
+De esta manera, combinando estas herramientas, podríamos gestionar
+mejor la velocidad con la que se generan y procesan los datos.
+</p>
+
+<h4>2. Volumen: HDFS y MapReduce</h4>
+
+<p>
+Netflix genera grandes cantidades de información relacionada con
+las reproducciones, las búsquedas, los dispositivos utilizados
+y los hábitos de visualización.
+</p>
+
+<p>
+Para gestionar este volumen, una herramienta útil sería
+<strong>HDFS (Hadoop Distributed File System)</strong>,
+que permite almacenar archivos grandes repartidos entre diferentes
+servidores. De esta manera, no es necesario guardar toda la
+información en una única máquina y se puede ampliar la capacidad
+añadiendo más servidores.
+</p>
+
+<p>
+También podemos utilizar <strong>MapReduce</strong>, que permite
+procesar grandes conjuntos de datos dividiendo el trabajo entre
+varios equipos.
+</p>
+
+<p>
+Por ejemplo, si quisiéramos analizar las reproducciones de millones
+de usuarios durante varios meses para conocer las series más
+populares, podríamos almacenar los registros en HDFS y procesarlos
+mediante MapReduce.
+</p>
+
+<h4>3. ¿Por qué una base de datos relacional tradicional no sería suficiente?</h4>
+
+<p>
+Las bases de datos relacionales tradicionales, como MySQL, son muy
+útiles para almacenar información organizada en tablas y realizar
+consultas.
+</p>
+
+<p>
+Sin embargo, si utilizáramos una única base de datos relacional
+convencional para almacenar y analizar todos los eventos generados
+por millones de usuarios de Netflix, podríamos encontrarnos con
+problemas de rendimiento y capacidad.
+</p>
+
+<p>
+Además, algunos datos tienen formatos diferentes y se generan
+continuamente, lo que complica su gestión mediante una única
+base de datos tradicional.
+</p>
+
+<p>
+En cambio, Hadoop permite repartir el almacenamiento y el
+procesamiento entre varios servidores, facilitando el trabajo
+con grandes cantidades de información.
+</p>
+
+<p>
+Esto no significa que las bases de datos relacionales no puedan
+utilizarse en plataformas grandes, ya que existen soluciones
+distribuidas y sistemas capaces de escalar. La diferencia es que
+Hadoop está especialmente pensado para trabajar con grandes
+conjuntos de datos mediante procesamiento distribuido.
+</p>
+
+<h4>Conclusión</h4>
+
+<p>
+Consideramos que HDFS y MapReduce serían especialmente útiles para
+gestionar el volumen de datos de Netflix, mientras que YARN ayudaría
+a organizar los recursos de procesamiento.
+</p>
+
+<p>
+Para la velocidad, sobre todo cuando necesitamos analizar información
+casi al instante, sería necesario utilizar herramientas adicionales
+como Apache Spark y Apache Kafka.
+</p>
+
+<p>
+Por tanto, una arquitectura distribuida permitiría gestionar mejor
+estas dos necesidades que una única base de datos relacional
+tradicional.
+</p>
+
 
 <hr>
 
