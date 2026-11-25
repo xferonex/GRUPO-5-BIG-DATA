@@ -1,0 +1,181 @@
+id_lectura,id_sensor,ubicacion,fecha_hora,temperatura,humedad,puerta_abierta,alarma_activa,detalles
+1,NEV_01,Camara lacteos,2026-11-01 00:00:00,4.1,76.0,false,false,bateria:100;senal:-70
+2,NEV_02,Camara carne,2026-11-01 00:00:00,2.8,72.5,false,false,bateria:98;senal:-55
+3,NEV_03,Camara fruta y verdura,2026-11-01 00:00:00,5.7,61.7,false,false,bateria:99;senal:-63
+4,NEV_01,Camara lacteos,2026-11-01 06:00:00,4.0,61.2,false,false,bateria:99;senal:-63
+5,NEV_02,Camara carne,2026-11-01 06:00:00,3.0,66.8,false,false,bateria:100;senal:-69
+6,NEV_03,Camara fruta y verdura,2026-11-01 06:00:00,6.3,65.6,false,false,bateria:97;senal:-60
+7,NEV_01,Camara lacteos,2026-11-01 12:00:00,4.3,67.4,false,false,bateria:99;senal:-64
+8,NEV_02,Camara carne,2026-11-01 12:00:00,2.8,67.9,false,false,bateria:99;senal:-56
+9,NEV_03,Camara fruta y verdura,2026-11-01 12:00:00,6.1,69.0,false,false,bateria:97;senal:-69
+10,NEV_01,Camara lacteos,2026-11-01 18:00:00,4.9,67.2,false,false,bateria:100;senal:-69
+11,NEV_02,Camara carne,2026-11-01 18:00:00,2.0,60.6,false,false,bateria:99;senal:-61
+12,NEV_03,Camara fruta y verdura,2026-11-01 18:00:00,6.2,72.0,false,false,bateria:98;senal:-64
+13,NEV_01,Camara lacteos,2026-11-02 00:00:00,3.9,71.4,false,false,bateria:98;senal:-69
+14,NEV_02,Camara carne,2026-11-02 00:00:00,2.2,69.6,false,false,bateria:98;senal:-70
+15,NEV_03,Camara fruta y verdura,2026-11-02 00:00:00,6.8,66.2,false,false,bateria:97;senal:-60
+16,NEV_01,Camara lacteos,2026-11-02 06:00:00,4.5,68.9,false,false,bateria:98;senal:-67
+17,NEV_02,Camara carne,2026-11-02 06:00:00,2.8,65.3,false,false,bateria:98;senal:-58
+18,NEV_03,Camara fruta y verdura,2026-11-02 06:00:00,7.2,81.4,true,false,bateria:97;senal:-70
+19,NEV_01,Camara lacteos,2026-11-02 12:00:00,5.0,66.7,false,false,bateria:100;senal:-64
+20,NEV_02,Camara carne,2026-11-02 12:00:00,2.8,64.9,false,false,bateria:97;senal:-59
+21,NEV_03,Camara fruta y verdura,2026-11-02 12:00:00,6.1,71.6,true,false,bateria:96;senal:-67
+22,NEV_01,Camara lacteos,2026-11-02 18:00:00,4.7,65.5,false,false,bateria:99;senal:-62
+23,NEV_02,Camara carne,2026-11-02 18:00:00,,66.6,false,false,bateria:97;senal:-67
+24,NEV_03,Camara fruta y verdura,2026-11-02 18:00:00,5.3,68.5,false,false,bateria:98;senal:-56
+25,NEV_01,Camara lacteos,2026-11-03 00:00:00,5.2,76.1,false,false,bateria:98;senal:-70
+26,NEV_02,Camara carne,2026-11-03 00:00:00,2.6,75.6,false,false,bateria:98;senal:-61
+27,NEV_03,Camara fruta y verdura,2026-11-03 00:00:00,6.8,69.4,false,false,bateria:95;senal:-65
+28,NEV_01,Camara lacteos,2026-11-03 06:00:00,3.6,68.0,false,false,bateria:98;senal:-60
+29,NEV_02,Camara carne,2026-11-03 06:00:00,2.5,68.8,false,false,bateria:98;senal:-63
+30,NEV_03,Camara fruta y verdura,2026-11-03 06:00:00,6.1,73.5,false,false,bateria:95;senal:-66
+31,NEV_01,Camara lacteos,2026-11-03 12:00:00,4.1,78.0,false,false,bateria:98;senal:-69
+32,NEV_02,Camara carne,2026-11-03 12:00:00,2.9,65.3,false,false,bateria:97;senal:-63
+33,NEV_03,Camara fruta y verdura,2026-11-03 12:00:00,6.7,64.0,false,false,bateria:95;senal:-68
+34,NEV_01,Camara lacteos,2026-11-03 18:00:00,4.4,68.0,false,false,bateria:99;senal:-57
+35,NEV_02,Camara carne,2026-11-03 18:00:00,2.9,68.9,false,false,bateria:98;senal:-61
+36,NEV_03,Camara fruta y verdura,2026-11-03 18:00:00,6.0,68.5,false,false,bateria:95;senal:-69
+37,NEV_01,Camara lacteos,2026-11-04 00:00:00,3.9,65.9,false,false,bateria:96;senal:-70
+38,NEV_02,Camara carne,2026-11-04 00:00:00,3.3,76.5,false,false,bateria:95;senal:-68
+39,NEV_03,Camara fruta y verdura,2026-11-04 00:00:00,7.2,74.3,true,false,bateria:95;senal:-60
+40,NEV_01,Camara lacteos,2026-11-04 06:00:00,4.4,64.3,false,false,bateria:96;senal:-66
+41,NEV_02,Camara carne,2026-11-04 06:00:00,3.9,66.0,false,false,bateria:97;senal:-66
+42,NEV_03,Camara fruta y verdura,2026-11-04 06:00:00,6.7,67.4,false,false,bateria:94;senal:-69
+43,NEV_01,Camara lacteos,2026-11-04 12:00:00,4.6,66.8,false,false,bateria:96;senal:-66
+44,NEV_02,Camara carne,2026-11-04 12:00:00,2.4,73.1,false,false,bateria:97;senal:-63
+45,NEV_03,Camara fruta y verdura,2026-11-04 12:00:00,6.5,72.3,false,false,bateria:94;senal:-68
+46,NEV_01,Camara lacteos,2026-11-04 18:00:00,3.8,75.5,false,false,bateria:97;senal:-58
+47,NEV_02,Camara carne,2026-11-04 18:00:00,3.1,66.0,false,false,bateria:97;senal:-69
+48,NEV_03,Camara fruta y verdura,2026-11-04 18:00:00,6.2,82.1,false,false,bateria:95;senal:-56
+49,NEV_01,Camara lacteos,2026-11-05 00:00:00,3.7,70.4,false,false,bateria:96;senal:-57
+50,NEV_02,Camara carne,2026-11-05 00:00:00,2.4,63.5,false,false,bateria:94;senal:-60
+51,NEV_03,Camara fruta y verdura,2026-11-05 00:00:00,5.9,73.2,false,false,bateria:95;senal:-56
+52,NEV_01,Camara lacteos,2026-11-05 06:00:00,3.6,76.2,false,false,bateria:97;senal:-61
+53,NEV_02,Camara carne,2026-11-05 06:00:00,3.1,63.1,false,false,bateria:95;senal:-58
+54,NEV_03,Camara fruta y verdura,2026-11-05 06:00:00,6.0,72.0,false,false,bateria:94;senal:-60
+55,NEV_01,Camara lacteos,2026-11-05 12:00:00,2.9,70.9,false,false,bateria:95;senal:-63
+56,NEV_02,Camara carne,2026-11-05 12:00:00,3.1,73.3,false,false,bateria:94;senal:-67
+57,NEV_03,Camara fruta y verdura,2026-11-05 12:00:00,7.1,67.0,false,false,bateria:94;senal:-56
+58,NEV_01,Camara lacteos,2026-11-05 18:00:00,45.0,72.6,false,true,bateria:97;senal:-64
+59,NEV_02,Camara carne,2026-11-05 18:00:00,3.4,70.7,false,false,bateria:96;senal:-59
+60,NEV_03,Camara fruta y verdura,2026-11-05 18:00:00,5.6,69.6,true,false,bateria:95;senal:-55
+61,NEV_01,Camara lacteos,2026-11-06 00:00:00,3.8,72.4,false,false,bateria:94;senal:-64
+62,NEV_02,Camara carne,2026-11-06 00:00:00,3.2,67.7,false,false,bateria:95;senal:-68
+63,NEV_03,Camara fruta y verdura,2026-11-06 00:00:00,6.9,66.6,false,false,bateria:94;senal:-70
+64,NEV_01,Camara lacteos,2026-11-06 06:00:00,3.9,75.9,false,false,bateria:94;senal:-64
+65,NEV_02,Camara carne,2026-11-06 06:00:00,2.1,74.2,false,false,bateria:94;senal:-56
+66,NEV_03,Camara fruta y verdura,2026-11-06 06:00:00,4.8,69.4,false,false,bateria:93;senal:-57
+67,NEV_01,Camara lacteos,2026-11-06 12:00:00,4.1,70.1,false,false,bateria:96;senal:-64
+68,NEV_02,Camara carne,2026-11-06 12:00:00,2.9,69.0,false,false,bateria:94;senal:-58
+69,NEV_03,Camara fruta y verdura,2026-11-06 12:00:00,6.1,67.7,false,false,bateria:94;senal:-56
+70,NEV_01,Camara lacteos,2026-11-06 18:00:00,3.2,73.9,false,false,bateria:96;senal:-67
+71,NEV_02,Camara carne,2026-11-06 18:00:00,3.1,67.2,false,false,bateria:94;senal:-64
+72,NEV_03,Camara fruta y verdura,2026-11-06 18:00:00,6.1,69.3,false,false,bateria:92;senal:-69
+73,NEV_01,Camara lacteos,2026-11-07 00:00:00,4.9,67.1,false,false,bateria:95;senal:-69
+74,NEV_02,Camara carne,2026-11-07 00:00:00,3.1,73.1,false,false,bateria:92;senal:-60
+75,NEV_03,Camara fruta y verdura,2026-11-07 00:00:00,6.0,69.9,false,false,bateria:91;senal:-64
+76,NEV_01,Camara lacteos,2026-11-07 06:00:00,4.6,78.3,false,false,bateria:93;senal:-67
+77,NEV_02,Camara carne,2026-11-07 06:00:00,2.9,77.2,false,false,bateria:94;senal:-69
+78,NEV_03,Camara fruta y verdura,2026-11-07 06:00:00,5.7,69.3,false,false,bateria:91;senal:-56
+79,NEV_01,Camara lacteos,2026-11-07 12:00:00,4.4,66.2,false,false,bateria:94;senal:-64
+80,NEV_02,Camara carne,2026-11-07 12:00:00,3.6,69.6,false,false,bateria:92;senal:-68
+81,NEV_03,Camara fruta y verdura,2026-11-07 12:00:00,6.6,75.0,false,false,bateria:92;senal:-56
+82,NEV_01,Camara lacteos,2026-11-07 18:00:00,3.8,65.7,false,false,bateria:94;senal:-56
+83,NEV_02,Camara carne,2026-11-07 18:00:00,3.3,70.9,false,false,bateria:94;senal:-63
+84,NEV_03,Camara fruta y verdura,2026-11-07 18:00:00,5.9,71.6,false,false,bateria:93;senal:-66
+85,NEV_01,Camara lacteos,2026-11-08 00:00:00,3.8,69.5,false,false,bateria:93;senal:-60
+86,NEV_02,Camara carne,2026-11-08 00:00:00,4.1,69.6,true,false,bateria:92;senal:-65
+87,NEV_03,Camara fruta y verdura,2026-11-08 00:00:00,,73.6,false,false,bateria:91;senal:-67
+88,NEV_01,Camara lacteos,2026-11-08 06:00:00,4.3,69.8,false,false,bateria:93;senal:-65
+89,NEV_02,Camara carne,2026-11-08 06:00:00,2.6,66.6,false,false,bateria:93;senal:-64
+90,NEV_03,Camara fruta y verdura,2026-11-08 06:00:00,6.1,71.3,true,false,bateria:91;senal:-67
+91,NEV_01,Camara lacteos,2026-11-08 12:00:00,3.9,73.6,false,false,bateria:94;senal:-60
+92,NEV_02,Camara carne,2026-11-08 12:00:00,3.0,73.3,false,false,bateria:92;senal:-67
+93,NEV_03,Camara fruta y verdura,2026-11-08 12:00:00,6.8,71.6,true,false,bateria:90;senal:-60
+94,NEV_01,Camara lacteos,2026-11-08 18:00:00,3.9,75.7,false,false,bateria:94;senal:-64
+95,NEV_02,Camara carne,2026-11-08 18:00:00,3.0,73.0,false,false,bateria:91;senal:-67
+96,NEV_03,Camara fruta y verdura,2026-11-08 18:00:00,5.6,63.1,false,false,bateria:91;senal:-64
+97,NEV_01,Camara lacteos,2026-11-09 00:00:00,5.4,79.4,true,false,bateria:92;senal:-57
+98,NEV_02,Camara carne,2026-11-09 00:00:00,3.7,72.2,false,false,bateria:90;senal:-55
+99,NEV_03,Camara fruta y verdura,2026-11-09 00:00:00,5.9,74.9,false,false,bateria:89;senal:-62
+100,NEV_01,Camara lacteos,2026-11-09 06:00:00,4.2,63.6,false,false,bateria:91;senal:-60
+101,NEV_02,Camara carne,2026-11-09 06:00:00,3.4,70.0,false,false,bateria:91;senal:-64
+102,NEV_03,Camara fruta y verdura,2026-11-09 06:00:00,5.9,66.1,false,false,bateria:89;senal:-66
+103,NEV_01,Camara lacteos,2026-11-09 12:00:00,3.8,67.5,false,false,bateria:92;senal:-58
+104,NEV_02,Camara carne,2026-11-09 12:00:00,3.9,61.0,false,false,bateria:91;senal:-69
+105,NEV_03,Camara fruta y verdura,2026-11-09 12:00:00,7.0,67.0,false,false,bateria:91;senal:-70
+106,NEV_01,Camara lacteos,2026-11-09 18:00:00,3.8,75.4,false,false,bateria:91;senal:-65
+107,NEV_02,Camara carne,2026-11-09 18:00:00,2.3,69.4,false,false,bateria:92;senal:-55
+108,NEV_03,Camara fruta y verdura,2026-11-09 18:00:00,5.7,68.2,false,false,bateria:90;senal:-56
+109,NEV_01,Camara lacteos,2026-11-10 00:00:00,3.2,67.4,false,false,bateria:90;senal:-58
+110,NEV_02,Camara carne,2026-11-10 00:00:00,2.8,68.0,false,false,bateria:91;senal:-58
+111,NEV_03,Camara fruta y verdura,2026-11-10 00:00:00,5.9,71.9,false,false,bateria:88;senal:-65
+112,NEV_01,Camara lacteos,2026-11-10 06:00:00,3.9,78.1,false,false,bateria:92;senal:-62
+113,NEV_02,Camara carne,2026-11-10 06:00:00,3.1,71.4,false,false,bateria:91;senal:-66
+114,NEV_03,Camara fruta y verdura,2026-11-10 06:00:00,6.8,74.4,true,false,bateria:90;senal:-64
+115,NEV_01,Camara lacteos,2026-11-10 12:00:00,4.5,71.4,false,false,bateria:90;senal:-65
+116,NEV_02,Camara carne,2026-11-10 12:00:00,2.3,71.7,false,false,bateria:91;senal:-66
+117,NEV_03,Camara fruta y verdura,2026-11-10 12:00:00,5.9,68.4,false,false,bateria:89;senal:-67
+118,NEV_01,Camara lacteos,2026-11-10 18:00:00,2.6,66.8,false,false,bateria:92;senal:-64
+119,NEV_02,Camara carne,2026-11-10 18:00:00,3.8,74.9,false,false,bateria:90;senal:-65
+120,NEV_03,Camara fruta y verdura,2026-11-10 18:00:00,6.1,73.4,false,false,bateria:89;senal:-58
+121,NEV_01,Camara lacteos,2026-11-11 00:00:00,4.0,67.8,false,false,bateria:89;senal:-57
+122,NEV_02,Camara carne,2026-11-11 00:00:00,-30.0,70.0,false,true,bateria:89;senal:-63
+123,NEV_03,Camara fruta y verdura,2026-11-11 00:00:00,6.5,74.3,false,false,bateria:87;senal:-64
+124,NEV_01,Camara lacteos,2026-11-11 06:00:00,5.0,72.3,false,false,bateria:90;senal:-56
+125,NEV_02,Camara carne,2026-11-11 06:00:00,3.3,71.3,false,false,bateria:88;senal:-57
+126,NEV_03,Camara fruta y verdura,2026-11-11 06:00:00,6.2,69.5,false,false,bateria:88;senal:-60
+127,NEV_01,Camara lacteos,2026-11-11 12:00:00,3.8,73.3,false,false,bateria:91;senal:-65
+128,NEV_02,Camara carne,2026-11-11 12:00:00,4.4,77.5,true,false,bateria:88;senal:-66
+129,NEV_03,Camara fruta y verdura,2026-11-11 12:00:00,6.4,74.0,false,false,bateria:88;senal:-70
+130,NEV_01,Camara lacteos,2026-11-11 18:00:00,4.0,63.4,false,false,bateria:90;senal:-59
+131,NEV_02,Camara carne,2026-11-11 18:00:00,2.4,71.6,false,false,bateria:89;senal:-68
+132,NEV_03,Camara fruta y verdura,2026-11-11 18:00:00,6.1,77.9,false,false,bateria:87;senal:-57
+133,NEV_01,Camara lacteos,2026-11-12 00:00:00,5.3,72.4,true,false,bateria:89;senal:-67
+134,NEV_02,Camara carne,2026-11-12 00:00:00,3.7,73.7,false,false,bateria:88;senal:-55
+135,NEV_03,Camara fruta y verdura,2026-11-12 00:00:00,5.4,68.7,false,false,bateria:86;senal:-70
+136,NEV_01,Camara lacteos,2026-11-12 06:00:00,4.7,72.8,false,false,bateria:90;senal:-60
+137,NEV_02,Camara carne,2026-11-12 06:00:00,4.3,66.4,false,false,bateria:88;senal:-69
+138,NEV_03,Camara fruta y verdura,2026-11-12 06:00:00,6.6,72.0,false,false,bateria:86;senal:-62
+139,NEV_01,Camara lacteos,2026-11-12 12:00:00,4.2,64.9,false,false,bateria:88;senal:-63
+140,NEV_02,Camara carne,2026-11-12 12:00:00,3.8,67.9,false,false,bateria:89;senal:-68
+141,NEV_03,Camara fruta y verdura,2026-11-12 12:00:00,7.7,74.1,true,false,bateria:87;senal:-63
+142,NEV_01,Camara lacteos,2026-11-12 18:00:00,,72.4,false,false,bateria:90;senal:-62
+143,NEV_02,Camara carne,2026-11-12 18:00:00,2.6,76.8,false,false,bateria:87;senal:-59
+144,NEV_03,Camara fruta y verdura,2026-11-12 18:00:00,6.9,67.5,false,false,bateria:87;senal:-59
+145,NEV_01,Camara lacteos,2026-11-13 00:00:00,4.1,72.1,false,false,bateria:87;senal:-55
+146,NEV_02,Camara carne,2026-11-13 00:00:00,3.4,73.1,false,false,bateria:87;senal:-66
+147,NEV_03,Camara fruta y verdura,2026-11-13 00:00:00,6.1,70.9,false,false,bateria:86;senal:-59
+148,NEV_01,Camara lacteos,2026-11-13 06:00:00,2.7,68.2,false,false,bateria:89;senal:-67
+149,NEV_02,Camara carne,2026-11-13 06:00:00,2.0,62.4,false,false,bateria:87;senal:-66
+150,NEV_03,Camara fruta y verdura,2026-11-13 06:00:00,6.7,71.7,false,false,bateria:86;senal:-66
+151,NEV_01,Camara lacteos,2026-11-13 12:00:00,2.9,74.3,false,false,bateria:87;senal:-58
+152,NEV_02,Camara carne,2026-11-13 12:00:00,2.9,75.2,false,false,bateria:86;senal:-69
+153,NEV_03,Camara fruta y verdura,2026-11-13 12:00:00,5.9,71.0,false,false,bateria:86;senal:-69
+154,NEV_01,Camara lacteos,2026-11-13 18:00:00,4.4,73.2,false,false,bateria:88;senal:-61
+155,NEV_02,Camara carne,2026-11-13 18:00:00,2.6,69.3,false,false,bateria:88;senal:-67
+156,NEV_03,Camara fruta y verdura,2026-11-13 18:00:00,6.2,77.6,false,false,bateria:86;senal:-61
+157,NEV_01,Camara lacteos,2026-11-14 00:00:00,3.6,70.5,false,false,bateria:86;senal:-69
+158,NEV_02,Camara carne,2026-11-14 00:00:00,3.1,70.7,false,false,bateria:85;senal:-69
+159,NEV_03,Camara fruta y verdura,2026-11-14 00:00:00,6.4,77.0,true,false,bateria:85;senal:-66
+160,NEV_01,Camara lacteos,2026-11-14 06:00:00,4.3,77.0,false,false,bateria:86;senal:-57
+161,NEV_02,Camara carne,2026-11-14 06:00:00,3.7,71.1,false,false,bateria:86;senal:-67
+162,NEV_03,Camara fruta y verdura,2026-11-14 06:00:00,6.7,67.3,false,false,bateria:84;senal:-69
+163,NEV_01,Camara lacteos,2026-11-14 12:00:00,4.6,74.2,true,false,bateria:87;senal:-65
+164,NEV_02,Camara carne,2026-11-14 12:00:00,3.0,63.2,false,false,bateria:86;senal:-70
+165,NEV_03,Camara fruta y verdura,2026-11-14 12:00:00,5.6,66.2,false,false,bateria:85;senal:-57
+166,NEV_01,Camara lacteos,2026-11-14 18:00:00,4.3,68.9,false,false,bateria:86;senal:-68
+167,NEV_02,Camara carne,2026-11-14 18:00:00,3.8,70.2,false,false,bateria:86;senal:-65
+168,NEV_03,Camara fruta y verdura,2026-11-14 18:00:00,7.0,72.4,false,false,bateria:85;senal:-64
+169,NEV_01,Camara lacteos,2026-11-15 00:00:00,3.7,70.0,false,false,bateria:87;senal:-56
+170,NEV_02,Camara carne,2026-11-15 00:00:00,2.4,70.0,false,false,bateria:86;senal:-68
+171,NEV_03,Camara fruta y verdura,2026-11-15 00:00:00,5.7,68.2,false,false,bateria:83;senal:-65
+172,NEV_01,Camara lacteos,2026-11-15 06:00:00,3.7,66.8,false,false,bateria:85;senal:-66
+173,NEV_02,Camara carne,2026-11-15 06:00:00,3.1,70.9,false,false,bateria:86;senal:-56
+174,NEV_03,Camara fruta y verdura,2026-11-15 06:00:00,6.7,74.7,false,false,bateria:84;senal:-63
+175,NEV_01,Camara lacteos,2026-11-15 12:00:00,4.6,67.5,false,false,bateria:87;senal:-55
+176,NEV_02,Camara carne,2026-11-15 12:00:00,3.5,69.7,false,false,bateria:85;senal:-60
+177,NEV_03,Camara fruta y verdura,2026-11-15 12:00:00,6.3,64.4,false,false,bateria:83;senal:-57
+178,NEV_01,Camara lacteos,2026-11-15 18:00:00,4.3,66.5,false,false,bateria:87;senal:-58
+179,NEV_02,Camara carne,2026-11-15 18:00:00,2.9,68.4,false,false,bateria:85;senal:-59
+180,NEV_03,Camara fruta y verdura,2026-11-15 18:00:00,6.4,62.8,false,false,bateria:83;senal:-67

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sección 2 – Diseño y datos | Grupo 5</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        .endterm-bloque2 .content { min-width: 0; }
+        .endterm-bloque2 .content section + section { border-top: 1px solid #b9bdc2; margin-top: 1.8rem; padding-top: .8rem; }
+        .endterm-bloque2 .table-scroll { overflow-x: auto; margin: 1rem 0; }
+        .endterm-bloque2 .services-table { width: 100%; max-width: 1050px; }
+        .endterm-bloque2 .services-table code { overflow-wrap: anywhere; }
+        .endterm-bloque2 .content pre { box-sizing: border-box; display: block; width: fit-content; max-width: 100%; overflow-x: auto; padding: 1rem; border: 1px solid #bac1c6; background: #fff; font-size: .95rem; line-height: 1.5; }
+        .endterm-bloque2 .content pre code { white-space: pre; overflow-wrap: normal; }
+        .endterm-bloque2 .captura-figure { margin: 1.3rem 0; max-width: 1100px; }
+        .endterm-bloque2 .captura-figure img { display: block; width: 100%; height: auto; border: 1px solid #bac1c6; }
+        .endterm-bloque2 .captura-csv { width: 75%; max-width: 825px; }
+        .endterm-bloque2 .captura-sql { width: 50%; max-width: 550px; }
+        @media (max-width: 700px) { .endterm-bloque2 .captura-csv, .endterm-bloque2 .captura-sql { width: 100%; } }
+        .endterm-bloque2 .captura-figure figcaption { margin-top: .6rem; font-size: .95rem; line-height: 1.5; }
+        .endterm-bloque2 .sidebar a[aria-current="page"] { font-weight: 700; background: #dfe4e7; }
+    </style>
+</head>
+
+<body class="page-index endterm-bloque2">
+    <header>
+        <div>
+            <a href="index.html">
+                <img src="img/logo.png" alt="grupo5" class="logo_index">
+            </a>
+        </div>
+        <div class="header-title">
+            <h2>GRUPO 5: RETO BIG DATA</h2>
+        </div>
+        <div class="header-users">
+            <div class="user_loged_box">
+                <p>Javier Rueda Jiménez</p>
+                <p>Fernando Arroyo Almodóvar </p>
+                <p>Ricardo Corral Valderas</p>
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <aside id="sidebar" class="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-expanded="true" aria-controls="sidebar">
+                <span class="toggle-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </span>
+            </button>
+            <nav class="sidebar-nav">
+                <ul>
+                   
+<!-- INICIO MENU MIDTERM -->
+<li class="menu-item has-submenu">
+    <button type="button" class="submenu-toggle" aria-expanded="false">
+        MIDTERM - Entrega parcial
+    </button>
+    <ul class="submenu">
+
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #1 AWS</button>
+                        <ul class="submenu">
+                            <li><a href="tablaServiciosAws.html">- Tabla Servicios AWS</a></li>
+                            <li><a href="escenarioAws.html">- Respuestas escenario AWS</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #2 – Primer servidor web en AWS</button>
+                        <ul class="submenu">
+                            <li>
+                                <a href="lab3.html">- Laboratorio 3</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="lab3.html#lab3_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="lab3.html#lab3_evidencias">&bull; 2. Evidencias de la práctica</a></li>
+                                    <li><a href="lab3.html#lab3_cs01">&bull; 4. CS01 – Protección contra terminación</a></li>
+                                    <li><a href="lab3.html#lab3_cs02">&bull; 5. CS02 – Página web desplegada</a></li>
+                                    <li><a href="lab3.html#lab3_cs03">&bull; 6. CS03 – Monitorización de la instancia EC2</a></li>
+                                    <li><a href="lab3.html#lab3_cs04">&bull; 7. CS04 - Grupo de seguridad y acceso HTTP</a></li>
+                                    <li><a href="lab3.html#lab3_cs05">&bull; 8. CS05 - Reescalado de la instancia EC2</a></li>
+                                    <li><a href="lab3.html#lab3_conclusion">&bull; 3. Conclusión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #3 – Balanceo y autoscaling</button>
+                        <ul class="submenu">
+                            <li>
+                                <a href="lab6.html">- Laboratorio 6</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="lab6.html#lab6_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="lab6.html#lab6_2">&bull; 2. Procedimiento</a></li>
+                                    <li><a href="lab6.html#lab6_2_1">&bull; 2.1 Creación de AMI para el autoescalado</a></li>
+                                    <li><a href="lab6.html#lab6_2_2">&bull; 2.2 Comprobación de la VPC generada</a></li>
+                                    <li><a href="lab6.html#lab6_2_3">&bull; 2.3 Creación del balanceador de carga</a></li>
+                                    <li><a href="lab6.html#lab6_2_4">&bull; 2.4 Creación plantilla de lanzamiento y grupo de escalado automático</a></li>
+                                    <li><a href="lab6.html#lab6_2_5">&bull; 2.5 Verificación del funcionamiento del balanceador de carga</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item has-submenu">
+                        <button type="button" class="submenu-toggle" aria-expanded="false">Sección #4 – Explora AWS Educate</button>
+                        <ul class="submenu">
+                            <li>
+                                <a href="lab5.html">- Laboratorio 5</a>
+                                <ul class="subsubmenu">
+                                    <li><a href="lab5.html#lab5_intro">&bull; 1. Introducción y objetivo</a></li>
+                                    <li><a href="lab5.html#lab5_2">&bull; 2. Procedimiento</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                
+    </ul>
+</li>
+<!-- FIN MENU MIDTERM -->
+    
+<li class="menu-item has-submenu">
+    <button type="button" class="submenu-toggle" aria-expanded="false">
+        ENDTERM - Entrega final
+    </button>
+    <ul class="submenu">
+        <li><a href="endterm-bloque1.html">Sección 1 - Big Data, Hadoop, Hive y Spark</a></li>
+        <li><a href="endterm-bloque2.html" aria-current="page">Sección 2 - Diseño y datos</a></li>
+        <li><a href="endterm-bloque3.html">Sección 3 - Tableau</a></li>
+        <li><a href="endterm-bloque4.html">Sección 4 - Visualizaciones y Dashboard</a></li>
+        <li><a href="endterm-bloque5.html">Sección 5 - Story grupal</a></li>
+        <li><a href="endterm-bloque6.html">Sección 6 - Análisis y predicción</a></li>
+    </ul>
+</li>
+
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+<h1>Sección 2 – Diseño de modelo de captación de datos</h1>
+
+<section id="tematica">
+  <h2>1. Temática y decisiones de negocio</h2>
+  <p>El sistema consiste en sensores de temperatura y humedad que estarán instalados en tres cámaras frigoríficas de un almacén de productos perecederos (lácteos, carne, fruta-verdura). Cada sensor enviará registros en un intervalo de tiempo, por ejemplo 6 horas (00:00, 06:00, 12:00 y 18:00), a razón de cuatro lecturas diarias por cámara.</p>
+  <p>En cuanto a decisiones de negocio que permita tomar:</p>
+  <ul>
+    <li>Descartar producto cuando la temperatura oscile del rango seguro (2-8 °C) durante un tiempo prolongado, cumpliendo con controles sanitarios.</li>
+    <li>Detectar errores y fallos (picos de temperatura) y ayuda a la gestión de mantenimiento de las cámaras.</li>
+    <li>Sensores que ayuden a detectar aperturas de puerta por tiempo prolongado o fuera de horario que afecten a la estabilidad térmica y al consumo energético.</li>
+    <li>Recolección de eventos y cumplimiento normativo.</li>
+  </ul>
+</section>
+
+<section id="atributos">
+  <h2>2. Atributos y tipos de datos</h2>
+  <p>El modelo contiene nueve atributos y contempla los tipos entero, decimal, texto, fecha o tiempo, booleano y map.</p>
+  <div class="table-scroll"><table class="services-table">
+    <thead>
+      <tr>
+        <th scope="col">Atributo</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Ejemplo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row"><code>id_lectura</code></th><td>Entero</td><td>Identificador único de cada registro</td><td><code>1</code></td></tr>
+      <tr><th scope="row"><code>id_sensor</code></th><td>Texto varchar</td><td>Código del sensor (una cámara = un sensor)</td><td><code>NEV_01</code></td></tr>
+      <tr><th scope="row"><code>ubicacion</code></th><td>Texto varchar</td><td>Cámara y producto almacenado</td><td>lacteos - carnes - frutas - verduras</td></tr>
+      <tr><th scope="row"><code>fecha_hora</code></th><td>Fecha/tiempo</td><td>Momento de la lectura</td><td><code>2026-11-01 06:00:00</code></td></tr>
+      <tr><th scope="row"><code>temperatura</code></th><td>Decimal</td><td>Temperatura interior en °C</td><td><code>4.5</code></td></tr>
+      <tr><th scope="row"><code>humedad</code></th><td>Decimal</td><td>Humedad relativa en %</td><td><code>62.3</code></td></tr>
+      <tr><th scope="row"><code>puerta_abierta</code></th><td>Booleano</td><td>Si la puerta estaba abierta en la lectura</td><td><code>false</code></td></tr>
+      <tr><th scope="row"><code>alarma_activa</code></th><td>Booleano</td><td>Si saltó la alarma de temperatura</td><td><code>false</code></td></tr>
+      <tr><th scope="row"><code>detalles</code></th><td>Map</td><td>Datos técnicos del sensor en pares clave-valor</td><td><code>bateria:87;senal:-60</code></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="datos-csv">
+  <h2>3. Fichero CSV y valores introducidos</h2>
+  <p>El fichero contiene 180 registros ficticios de tres sensores: <code>NEV_01</code>, <code>NEV_02</code> y <code>NEV_03</code>, con 60 lecturas por sensor. Abarca 15 días naturales, del 1 al 15 de noviembre de 2026, con lecturas cada seis horas. El primer registro corresponde al <code>2026-11-01 00:00:00</code> y el último al <code>2026-11-15 18:00:00</code>.</p>
+  <p><a href="../archive/Datos/cadena_frio_sensores.csv" download>Descargar cadena_frio_sensores.csv</a></p>
+  <figure class="captura-figure captura-csv">
+    <a href="img_end/seccion2/csv.png" target="_blank" rel="noopener"><img src="img_end/seccion2/csv.png" alt="Captura del CSV de sensores con los atributos separados en columnas en Excel." loading="lazy"></a>
+    <figcaption>Vista de las primeras lecturas del CSV en Excel. Pulsa la imagen para verla a tamaño completo.</figcaption>
+  </figure>
+  <h3>Valores nulos y outliers</h3>
+  <p>Se han introducido tres valores nulos y dos valores anómalos en el campo numérico <code>temperatura</code>. Los nulos se representan mediante celdas vacías. Las temperaturas anómalas son 45 °C y −30 °C; el resto de las temperaturas no nulas se encuentra entre 2 °C y 7,7 °C.</p>
+  <div class="table-scroll"><table class="services-table">
+    <thead>
+      <tr>
+        <th scope="col">Incidencia</th>
+        <th scope="col"><code>id_lectura</code></th>
+        <th scope="col">Fila del CSV</th>
+        <th scope="col">Temperatura</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Valor nulo</th><td>23</td><td>24</td><td>Vacío</td></tr>
+      <tr><th scope="row">Outlier</th><td>58</td><td>59</td><td>45 °C</td></tr>
+      <tr><th scope="row">Valor nulo</th><td>87</td><td>88</td><td>Vacío</td></tr>
+      <tr><th scope="row">Outlier</th><td>122</td><td>123</td><td>−30 °C</td></tr>
+      <tr><th scope="row">Valor nulo</th><td>142</td><td>143</td><td>Vacío</td></tr>
+    </tbody>
+  </table></div>
+  <p>La numeración de filas cuenta la cabecera como fila 1. Estas referencias permitirán localizar los valores para la limpieza de datos de la sección 6.</p>
+  <p>Se ha utilizado ChatGPT como apoyo para revisar y preparar el CSV y la sentencia de creación de la tabla en Hive.</p>
+</section>
+
+<section id="tabla-hive">
+  <h2>4. Creación de una tabla externa en Hive</h2>
+  <p>Se utiliza la ubicación indicada en el enunciado: <code>s3://retoBigData2026/input/</code>. Para este ejercicio se supone que el CSV ya se encuentra en esa carpeta del bucket. La sentencia define la tabla externa y cómo interpretar los datos; no sube el archivo a S3.</p>
+  <p><a href="../archive/SQL/crear_tabla_cadena_frio.sql" download>Descargar la sentencia de Hive</a></p>
+  <pre><code class="language-sql">CREATE EXTERNAL TABLE IF NOT EXISTS cadena_frio (
+    id_lectura     INT,
+    id_sensor      VARCHAR(25),
+    ubicacion      VARCHAR(25),
+    fecha_hora     TIMESTAMP,
+    temperatura    DECIMAL(5,1),
+    humedad        DECIMAL(5,1),
+    puerta_abierta BOOLEAN,
+    alarma_activa  BOOLEAN,
+    detalles       MAP&lt;STRING,INT&gt;
+)
+ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ','
+    COLLECTION ITEMS TERMINATED BY ';'
+    MAP KEYS TERMINATED BY ':'
+    NULL DEFINED AS ''
+STORED AS TEXTFILE
+LOCATION 's3://retoBigData2026/input/'
+TBLPROPERTIES (
+    'skip.header.line.count' = '1'
+);
+</code></pre>
+  <figure class="captura-figure captura-sql">
+    <a href="img_end/seccion2/consultasql.png" target="_blank" rel="noopener"><img src="img_end/seccion2/consultasql.png" alt="Captura de la sentencia SQL de creación de la tabla externa en Hive." loading="lazy"></a>
+    <figcaption>Sentencia de creación de la tabla externa en Hive.</figcaption>
+  </figure>
+  <p>La coma separa los atributos. En <code>detalles</code>, el punto y coma separa los elementos del mapa y los dos puntos separan cada clave de su valor. Los campos vacíos se interpretan como nulos y se omite la primera línea, que contiene la cabecera.</p>
+  <p>La sentencia se ha preparado conforme a la documentación; no se ha ejecutado en un entorno Hive, tal como permite el enunciado.</p>
+  <h3>Documentación consultada</h3>
+  <ul>
+    <li><a href="https://hive.apache.org/docs/latest/language/languagemanual-ddl/">Apache Hive: creación de tablas y formato de los datos</a>.</li>
+    <li><a href="https://hive.apache.org/docs/latest/language/languagemanual-types/">Apache Hive: tipos de datos</a>.</li>
+    <li><a href="https://issues.apache.org/jira/browse/HIVE-5795">Apache Hive: omisión de la cabecera del archivo</a>.</li>
+  </ul>
+</section>
+
+        </main>
+    </div>
+ 
+
+
+    <script src="js/sidebar.js"></script>
+</body>
+</html>
+    
+
+    
